@@ -3,17 +3,25 @@
         font-size:35px;
     }
 }
-@media screen and (max-width: 900px){
+@media screen and (min-width: 899px) and (max-width: 901px){
+  .spa-procedures{
+      height: 650px;
+  }
+  .spa-procedures-inner{
+      padding-top:70px;
+  }
+  
+}
+@media screen and (max-width: 899px){
     .spa-procedures{
-        height: 950px;
+        height: 980px;
     }
     .spa-procedures-inner{
         padding-top:0;
     }
-    .block-2{
-        margin-top:-80px;
-    }
+    
 }
+
 @media screen and (max-width: 768px) {
     .topnav a:not(:first-child), .dropdown .dropbtn {
       display: none;
@@ -83,6 +91,11 @@
         font-size:25px;
     }
   }
+  @media screen and (max-height: 500px){
+    .form-block-upper{
+      height: 120vh;
+    }
+  }
   @media screen and (max-width: 425px){
     .main-slider .slider .slider-text {
         top: 28vh;
@@ -107,6 +120,11 @@
         margin-top:20px;
     }
   }
+  @media screen and (max-width: 352px){
+    .block-2 .image-1{
+      margin-top:80px;
+    }
+  }
   @media screen and (max-width: 340px){
     .main-slider .slider .slider-text {
         top: 28vh;
@@ -114,3 +132,4 @@
         font-size:17px;
     }
   }
+ 
