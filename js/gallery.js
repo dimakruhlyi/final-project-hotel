@@ -1,12 +1,10 @@
-/*------------------------------------------ Head Menu ------------------------------------------*/
-function adaptiveMenu() {
-    var x = document.getElementById("myTopnav");
-    if (x.className === "topnav") {
-      x.className += " responsive";
-    } else {
-      x.className = "topnav";
-    }
-  }
+
+function include(url) {
+  var script = document.createElement('script');
+  script.src = url;
+  document.getElementsByTagName('head')[0].appendChild(script);
+}
+include('../js/head-menu.js');
 /*------------------------------------------ Fill Data ------------------------------------------*/
 const gallery_images = {
   tag: 'div',
