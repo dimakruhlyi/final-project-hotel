@@ -58,7 +58,7 @@ let apartments = {
             </div>
             <div class="product-info">
             <h3 class="product-title">${apartments[key].title}</h3>
-            <div class="price">&#8372;${apartments[key].price}/${apartments[key].beds}-bed room</div>
+            <div class="price">&#8372; ${apartments[key].price}/${apartments[key].beds}-bed room</div>
             <a href="" class="add-to-cart">See More</a>
         </div>
           </div>
