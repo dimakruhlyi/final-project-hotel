@@ -6,236 +6,122 @@ function include(url) {
 }
 include('../js/head-menu.js');
 /*------------------------------------------ Fill Data ------------------------------------------*/
-const gallery_images = {
-  tag: 'div',
-  attr:[['class','demo1 flex-container']],
-  children:[
-    {
-      tag: 'a',
-      attr:[['href','#img1']],
-      children:[{ tag: 'img', attr:[['src', '../img/gallery/gallery-1.jpg'],], },],
-    },
-    {
-      tag: 'a',
-      attr:[['href','#img2']],
-      children:[{ tag: 'img', attr:[['src', '../img/gallery/gallery-2.jpg'],], },],
-    },
-    {
-      tag: 'a',
-      attr:[['href','#img3']],
-      children:[{ tag: 'img', attr:[['src', '../img/gallery/gallery-3.jpg'],], },],
-    },
-    {
-      tag: 'a',
-      attr:[['href','#img4']],
-      children:[{ tag: 'img', attr:[['src', '../img/gallery/gallery-4.jpg'],], },],
-    },
-    {
-      tag: 'a',
-      attr:[['href','#img5']],
-      children:[{ tag: 'img', attr:[['src', '../img/gallery/gallery-5.jpg'],], },],
-    },
-    {
-      tag: 'a',
-      attr:[['href','#img6']],
-      children:[{ tag: 'img', attr:[['src', '../img/gallery/gallery-6.jpg'],], },],
-    },
-    {
-      tag: 'a',
-      attr:[['href','#img7']],
-      children:[{ tag: 'img', attr:[['src', '../img/gallery/gallery-7.jpg'],], },],
-    },
-    {
-      tag: 'a',
-      attr:[['href','#img8']],
-      children:[{ tag: 'img', attr:[['src', '../img/gallery/gallery-8.jpg'],], },],
-    },
-    {
-      tag: 'a',
-      attr:[['href','#img9']],
-      children:[{ tag: 'img', attr:[['src', '../img/gallery/gallery-9.jpg'],], },],
-    },
-    {
-      tag: 'a',
-      attr:[['href','#img10']],
-      children:[{ tag: 'img', attr:[['src', '../img/gallery/gallery-10.jpg'],], },],
-    },
-    {
-      tag: 'a',
-      attr:[['href','#img11']],
-      children:[{ tag: 'img', attr:[['src', '../img/gallery/gallery-11.jpg'],], },],
-    },
-    {
-      tag: 'a',
-      attr:[['href','#img12']],
-      children:[{ tag: 'img', attr:[['src', '../img/gallery/gallery-12.jpg'],], },],
-    },
-    {
-      tag: 'a',
-      attr:[['href','#img13']],
-      children:[{ tag: 'img', attr:[['src', '../img/gallery/gallery-13.jpg'],], },],
-    },
-    {
-      tag: 'a',
-      attr:[['href','#img14']],
-      children:[{ tag: 'img', attr:[['src', '../img/gallery/gallery-14.jpg'],], },],
-    },
-    {
-      tag: 'a',
-      attr:[['href','#img15']],
-      children:[{ tag: 'img', attr:[['src', '../img/gallery/gallery-15.jpg'],], },],
-    },
-    {
-      tag: 'a',
-      attr:[['href','#img16']],
-      children:[{ tag: 'img', attr:[['src', '../img/gallery/gallery-16.jpg'],], },],
-    },
-    {
-      tag: 'a',
-      attr:[['href','#img17']],
-      children:[{ tag: 'img', attr:[['src', '../img/gallery/gallery-17.jpg'],], },],
-    },
-    {
-      tag: 'a',
-      attr:[['href','#img18']],
-      children:[{ tag: 'img', attr:[['src', '../img/gallery/gallery-18.jpg'],], },],
-    },
-    {
-      tag: 'a',
-      attr:[['href','#img19']],
-      children:[{ tag: 'img', attr:[['src', '../img/gallery/gallery-19.jpg'],], },],
-    },
-    {
-      tag: 'a',
-      attr:[['href','#img20']],
-      children:[{ tag: 'img', attr:[['src', '../img/gallery/gallery-20.jpg'],], },],
-    },
-    {
-      tag: 'a',
-      attr:[['href','#img21']],
-      children:[{ tag: 'img', attr:[['src', '../img/gallery/gallery-21.jpg'],], },],
-    },
-    {
-      tag: 'figure',
-      attr:[['id','img1'], ['class','lbox flip']],
-      children:[{ tag: 'img', attr:[['src', '../img/gallery/gallery-1.jpg'],], },{ tag: 'a', attr:[['href', ''],], },],
-    },
-    {
-      tag: 'figure',
-      attr:[['id','img2'], ['class','lbox flip']],
-      children:[{ tag: 'img', attr:[['src', '../img/gallery/gallery-2.jpg'],], },{ tag: 'a', attr:[['href', ''],], },],
-    },
-    {
-      tag: 'figure',
-      attr:[['id','img3'], ['class','lbox flip']],
-      children:[{ tag: 'img', attr:[['src', '../img/gallery/gallery-3.jpg'],], },{ tag: 'a', attr:[['href', ''],], },],
-    },
-    {
-      tag: 'figure',
-      attr:[['id','img4'], ['class','lbox flip']],
-      children:[{ tag: 'img', attr:[['src', '../img/gallery/gallery-4.jpg'],], },{ tag: 'a', attr:[['href', ''],], },],
-    },
-    {
-      tag: 'figure',
-      attr:[['id','img5'], ['class','lbox flip']],
-      children:[{ tag: 'img', attr:[['src', '../img/gallery/gallery-5.jpg'],], },{ tag: 'a', attr:[['href', ''],], },],
-    },
-    {
-      tag: 'figure',
-      attr:[['id','img6'], ['class','lbox flip']],
-      children:[{ tag: 'img', attr:[['src', '../img/gallery/gallery-6.jpg'],], },{ tag: 'a', attr:[['href', ''],], },],
-    },
-    {
-      tag: 'figure',
-      attr:[['id','img7'], ['class','lbox flip']],
-      children:[{ tag: 'img', attr:[['src', '../img/gallery/gallery-7.jpg'],], },{ tag: 'a', attr:[['href', ''],], },],
-    },
-    {
-      tag: 'figure',
-      attr:[['id','img8'], ['class','lbox flip']],
-      children:[{ tag: 'img', attr:[['src', '../img/gallery/gallery-8.jpg'],], },{ tag: 'a', attr:[['href', ''],], },],
-    },
-    {
-      tag: 'figure',
-      attr:[['id','img9'], ['class','lbox flip']],
-      children:[{ tag: 'img', attr:[['src', '../img/gallery/gallery-9.jpg'],], },{ tag: 'a', attr:[['href', ''],], },],
-    },
-    {
-      tag: 'figure',
-      attr:[['id','img10'], ['class','lbox flip']],
-      children:[{ tag: 'img', attr:[['src', '../img/gallery/gallery-10.jpg'],], },{ tag: 'a', attr:[['href', ''],], },],
-    },
-    {
-      tag: 'figure',
-      attr:[['id','img11'], ['class','lbox flip']],
-      children:[{ tag: 'img', attr:[['src', '../img/gallery/gallery-11.jpg'],], },{ tag: 'a', attr:[['href', ''],], },],
-    },
-    {
-      tag: 'figure',
-      attr:[['id','img12'], ['class','lbox flip']],
-      children:[{ tag: 'img', attr:[['src', '../img/gallery/gallery-12.jpg'],], },{ tag: 'a', attr:[['href', ''],], },],
-    },
-    {
-      tag: 'figure',
-      attr:[['id','img13'], ['class','lbox flip']],
-      children:[{ tag: 'img', attr:[['src', '../img/gallery/gallery-13.jpg'],], },{ tag: 'a', attr:[['href', ''],], },],
-    },
-    {
-      tag: 'figure',
-      attr:[['id','img14'], ['class','lbox flip']],
-      children:[{ tag: 'img', attr:[['src', '../img/gallery/gallery-14.jpg'],], },{ tag: 'a', attr:[['href', ''],], },],
-    },
-    {
-      tag: 'figure',
-      attr:[['id','img15'], ['class','lbox flip']],
-      children:[{ tag: 'img', attr:[['src', '../img/gallery/gallery-15.jpg'],], },{ tag: 'a', attr:[['href', ''],], },],
-    },
-    {
-      tag: 'figure',
-      attr:[['id','img16'], ['class','lbox flip']],
-      children:[{ tag: 'img', attr:[['src', '../img/gallery/gallery-16.jpg'],], },{ tag: 'a', attr:[['href', ''],], },],
-    },
-    {
-      tag: 'figure',
-      attr:[['id','img17'], ['class','lbox flip']],
-      children:[{ tag: 'img', attr:[['src', '../img/gallery/gallery-17.jpg'],], },{ tag: 'a', attr:[['href', ''],], },],
-    },
-    {
-      tag: 'figure',
-      attr:[['id','img18'], ['class','lbox flip']],
-      children:[{ tag: 'img', attr:[['src', '../img/gallery/gallery-18.jpg'],], },{ tag: 'a', attr:[['href', ''],], },],
-    },
-    {
-      tag: 'figure',
-      attr:[['id','img19'], ['class','lbox flip']],
-      children:[{ tag: 'img', attr:[['src', '../img/gallery/gallery-19.jpg'],], },{ tag: 'a', attr:[['href', ''],], },],
-    },
-    {
-      tag: 'figure',
-      attr:[['id','img20'], ['class','lbox flip']],
-      children:[{ tag: 'img', attr:[['src', '../img/gallery/gallery-20.jpg'],], },{ tag: 'a', attr:[['href', ''],], },],
-    },
-    {
-      tag: 'figure',
-      attr:[['id','img21'], ['class','lbox flip']],
-      children:[{ tag: 'img', attr:[['src', '../img/gallery/gallery-21.jpg'],], },{ tag: 'a', attr:[['href', ''],], },],
-    },
-  ],
+let gallery = {
+  "1":{
+    "id": "img1",
+    "alt": "Gallery Image 1",
+    "img": "gallery-1.jpg",
+  },
+  "2":{
+    "id": "img2",
+    "alt": "Gallery Image 2",
+    "img": "gallery-2.jpg",
+  },
+  "3":{
+    "id": "img3",
+    "alt": "Gallery Image 3",
+    "img": "gallery-3.jpg",
+  },
+  "4":{
+    "id": "img4",
+    "alt": "Gallery Image 4",
+    "img": "gallery-4.jpg",
+  },
+  "5":{
+    "id": "img5",
+    "alt": "Gallery Image 5",
+    "img": "gallery-5.jpg",
+  },
+  "6":{
+    "id": "img6",
+    "alt": "Gallery Image 6",
+    "img": "gallery-6.jpg",
+  },
+  "7":{
+    "id": "img7",
+    "alt": "Gallery Image 7",
+    "img": "gallery-7.jpg",
+  },
+  "8":{
+    "id": "img8",
+    "alt": "Gallery Image 8",
+    "img": "gallery-8.jpg",
+  },
+  "9":{
+    "id": "img9",
+    "alt": "Gallery Image 9",
+    "img": "gallery-9.jpg",
+  },
+  "10":{
+    "id": "img10",
+    "alt": "Gallery Image 10",
+    "img": "gallery-10.jpg",
+  },
+  "11":{
+    "id": "img11",
+    "alt": "Gallery Image 11",
+    "img": "gallery-11.jpg",
+  },
+  "12":{
+    "id": "img12",
+    "alt": "Gallery Image 12",
+    "img": "gallery-12.jpg",
+  },
+  "13":{
+    "id": "img13",
+    "alt": "Gallery Image 13",
+    "img": "gallery-13.jpg",
+  },
+  "14":{
+    "id": "img14",
+    "alt": "Gallery Image 14",
+    "img": "gallery-14.jpg",
+  },
+  "15":{
+    "id": "img15",
+    "alt": "Gallery Image 15",
+    "img": "gallery-15.jpg",
+  },
+  "16":{
+    "id": "img16",
+    "alt": "Gallery Image 16",
+    "img": "gallery-16.jpg",
+  },
+  "17":{
+    "id": "img17",
+    "alt": "Gallery Image 17",
+    "img": "gallery-17.jpg",
+  },
+  "18":{
+    "id": "img18",
+    "alt": "Gallery Image 18",
+    "img": "gallery-18.jpg",
+  },
+  "19":{
+    "id": "img19",
+    "alt": "Gallery Image 19",
+    "img": "gallery-19.jpg",
+  },
+  "20":{
+    "id": "img20",
+    "alt": "Gallery Image 20",
+    "img": "gallery-20.jpg",
+  },
+  "21":{
+    "id": "img21",
+    "alt": "Gallery Image 21",
+    "img": "gallery-21.jpg",
+  },
 };
-function build ( data ) {
-  if ( typeof data ==='string') {
-    return document.createTextNode( data );
-  } else if ( data && data.tag ) {
-    const tag = document.createElement( data.tag );
-    if ( data.attr instanceof Array ) {
-      data.attr.map( ([key, value]) => tag.setAttribute(key, value) );
-    }
-    if ( data.children instanceof Array ) {
-      data.children.map( child => tag.appendChild( build( child ) ) );
-    }
-    return tag;
-  } else {
-    return document.createTextNode('');
+
+  let out = '';
+
+  for(let key in gallery){
+    out+=` <div class="demo1 flex-container">
+              <a href = "#${gallery[key].id}"><img src = "../img/gallery/${gallery[key].img}" at = "${gallery[key].alt}"/></a>
+              <figure id = "${gallery[key].id}" class="lbox flip"><img src="../img/gallery/${gallery[key].img}"><a href=""></a></figure>
+        </div>
+    `;
   }
-}
-document.getElementById('block-gallery').prepend(build(gallery_images));
+
+  document.getElementById('block-gallery').innerHTML = out;
