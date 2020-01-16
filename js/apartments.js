@@ -5,6 +5,7 @@ function include(url) {
   }
   include('../js/head-menu.js');
 /*------------------------------------------ Fill Data ------------------------------------------*/
+
 function readTextFile(file, callback) {
   var rawFile = new XMLHttpRequest();
   rawFile.overrideMimeType("application/json");
@@ -16,8 +17,7 @@ function readTextFile(file, callback) {
   }
   rawFile.send(null);
 }
-
-readTextFile("../js/data/apartments-data.json", function(text){
+readTextFile("../js/data/apartmentsData.json", function(text){
   let data = JSON.parse(text);
   //console.log(data);
   showCard(data);

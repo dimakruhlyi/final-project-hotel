@@ -6,116 +6,25 @@ function include(url) {
 }
 include('../js/head-menu.js');
 /*------------------------------------------ Fill Data ------------------------------------------*/
-let gallery = {
-  "1":{
-    "id": "img1",
-    "alt": "Gallery Image 1",
-    "img": "gallery-1.jpg",
-  },
-  "2":{
-    "id": "img2",
-    "alt": "Gallery Image 2",
-    "img": "gallery-2.jpg",
-  },
-  "3":{
-    "id": "img3",
-    "alt": "Gallery Image 3",
-    "img": "gallery-3.jpg",
-  },
-  "4":{
-    "id": "img4",
-    "alt": "Gallery Image 4",
-    "img": "gallery-4.jpg",
-  },
-  "5":{
-    "id": "img5",
-    "alt": "Gallery Image 5",
-    "img": "gallery-5.jpg",
-  },
-  "6":{
-    "id": "img6",
-    "alt": "Gallery Image 6",
-    "img": "gallery-6.jpg",
-  },
-  "7":{
-    "id": "img7",
-    "alt": "Gallery Image 7",
-    "img": "gallery-7.jpg",
-  },
-  "8":{
-    "id": "img8",
-    "alt": "Gallery Image 8",
-    "img": "gallery-8.jpg",
-  },
-  "9":{
-    "id": "img9",
-    "alt": "Gallery Image 9",
-    "img": "gallery-9.jpg",
-  },
-  "10":{
-    "id": "img10",
-    "alt": "Gallery Image 10",
-    "img": "gallery-10.jpg",
-  },
-  "11":{
-    "id": "img11",
-    "alt": "Gallery Image 11",
-    "img": "gallery-11.jpg",
-  },
-  "12":{
-    "id": "img12",
-    "alt": "Gallery Image 12",
-    "img": "gallery-12.jpg",
-  },
-  "13":{
-    "id": "img13",
-    "alt": "Gallery Image 13",
-    "img": "gallery-13.jpg",
-  },
-  "14":{
-    "id": "img14",
-    "alt": "Gallery Image 14",
-    "img": "gallery-14.jpg",
-  },
-  "15":{
-    "id": "img15",
-    "alt": "Gallery Image 15",
-    "img": "gallery-15.jpg",
-  },
-  "16":{
-    "id": "img16",
-    "alt": "Gallery Image 16",
-    "img": "gallery-16.jpg",
-  },
-  "17":{
-    "id": "img17",
-    "alt": "Gallery Image 17",
-    "img": "gallery-17.jpg",
-  },
-  "18":{
-    "id": "img18",
-    "alt": "Gallery Image 18",
-    "img": "gallery-18.jpg",
-  },
-  "19":{
-    "id": "img19",
-    "alt": "Gallery Image 19",
-    "img": "gallery-19.jpg",
-  },
-  "20":{
-    "id": "img20",
-    "alt": "Gallery Image 20",
-    "img": "gallery-20.jpg",
-  },
-  "21":{
-    "id": "img21",
-    "alt": "Gallery Image 21",
-    "img": "gallery-21.jpg",
-  },
-};
+function readTextFile(file, callback) {
+  var rawFile = new XMLHttpRequest();
+  rawFile.overrideMimeType("application/json");
+  rawFile.open("GET", file, true);
+  rawFile.onreadystatechange = function() {
+      if (rawFile.readyState === 4 && rawFile.status == "200") {
+          callback(rawFile.responseText);
+      }
+  }
+  rawFile.send(null);
+}
+readTextFile("../js/data/galleryData.json", function(text){
+  let data = JSON.parse(text);
+  //console.log(data);
+  showGallery(data);
+});
 
+function showGallery(gallery){
   let out = '';
-
   for(let key in gallery){
     out+=` <div class="demo1 flex-container">
               <a href = "#${gallery[key].id}"><img src = "../img/gallery/${gallery[key].img}" at = "${gallery[key].alt}"/></a>
@@ -125,3 +34,5 @@ let gallery = {
   }
 
   document.getElementById('block-gallery').innerHTML = out;
+}  
+  
