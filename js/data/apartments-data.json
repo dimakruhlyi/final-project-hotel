@@ -1,0 +1,38 @@
+{
+    "1":{
+      "img": "apartments-1.jpg",
+      "title": "Apartments 1",
+      "beds":2,
+      "price": 1999
+    },
+    "2":{
+      "img": "apartments-2.jpg",
+      "title": "Apartments 2",
+      "beds":1,
+      "price": 2000
+    },
+    "3":{
+      "img": "apartments-3.jpg",
+      "title": "Apartments 3",
+      "beds":2,
+      "price": 3000
+    },
+    "4":{
+      "img": "apartments-4.jpg",
+      "title": "Apartments 4",
+      "beds":3,
+      "price": 4000
+    },
+    "5":{
+      "img": "apartments-5.jpg",
+      "title": "Apartments 5",
+      "beds":3,
+      "price": 3500
+    },
+    "6":{
+      "img": "apartments-6.jpg",
+      "title": "Apartments 6",
+      "beds":2,
+      "price": 2500
+    }
+  }

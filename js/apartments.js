@@ -5,52 +5,37 @@ function include(url) {
   }
   include('../js/head-menu.js');
 /*------------------------------------------ Fill Data ------------------------------------------*/
-let apartments = {
-  "1":{
-    "img": "apartments-1.jpg",
-    "title": "Apartments 1",
-    'beds':2,
-    "price": 1999,
-  },
-  "2":{
-    "img": "apartments-2.jpg",
-    "title": "Apartments 2",
-    'beds':1,
-    "price": 2000,
-  },
-  "3":{
-    "img": "apartments-3.jpg",
-    "title": "Apartments 3",
-    'beds':2,
-    "price": 3000,
-  },
-  "4":{
-    "img": "apartments-4.jpg",
-    "title": "Apartments 4",
-    'beds':3,
-    "price": 4000,
-  },
-  "5":{
-    "img": "apartments-5.jpg",
-    "title": "Apartments 5",
-    'beds':3,
-    "price": 3500,
-  },
-  "6":{
-    "img": "apartments-6.jpg",
-    "title": "Apartments 6",
-    'beds':2,
-    "price": 2500,
-  },
-};
+function readTextFile(file, callback) {
+  var rawFile = new XMLHttpRequest();
+  rawFile.overrideMimeType("application/json");
+  rawFile.open("GET", file, true);
+  rawFile.onreadystatechange = function() {
+      if (rawFile.readyState === 4 && rawFile.status == "200") {
+          callback(rawFile.responseText);
+      }
+  }
+  rawFile.send(null);
+}
 
+readTextFile("../js/data/apartments-data.json", function(text){
+  let data = JSON.parse(text);
+  //console.log(data);
+  showCard(data);
+});
+
+ function showCard(apartments){
   let out = '';
-
+  //let bedsArray = localStorage.getItem('apartments-beds') ? JSON.parse(localStorage.getItem('apartments-beds')) : [];
+  let bedsArray = [], imgArray = [],titleArray = [], priceArray = [];
   for(let key in apartments){
-    // localStorage.setItem('apartments-img',apartments[key].img);
-    // localStorage.setItem('apartments-title',apartments[key].title);
-    // localStorage.setItem('apartments-price',apartments[key].price);
-    // localStorage.setItem('apartments-beds',apartments[key].beds);
+    imgArray.push(apartments[key].img);
+    localStorage.setItem('apartments-img',JSON.stringify(imgArray));
+    titleArray.push(apartments[key].title)
+    localStorage.setItem('apartments-title',JSON.stringify(titleArray));
+    priceArray.push(apartments[key].price); 
+    localStorage.setItem('apartments-price',JSON.stringify(priceArray));
+    bedsArray.push(apartments[key].beds);
+    localStorage.setItem('apartments-beds', JSON.stringify(bedsArray));
     out+=` <div class="border">
           <div class="wrap">
             <div class="product-wrap">
@@ -66,6 +51,6 @@ let apartments = {
         </div>
     `;
   }
-  
   document.getElementById('apartments-data').innerHTML = out;
-  //localStorage.setItem('apartment_data', apartments[1].img);
+ }
+ 
