@@ -232,6 +232,17 @@ body {
   margin-top:20px;
   background: grey;
 }
+ .border{
+  display: none;
+}
+.pagination-block > span {
+  display: inline-block;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.paginator_active {
+  color: red;
+}
   /*------------------------------------------  Luxury Rooms(with spa-classes) ------------------------------------------*/
   .spa-procedures {
     width: 100%;
