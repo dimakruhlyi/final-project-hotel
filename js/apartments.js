@@ -31,24 +31,26 @@ readTextFile("../js/data/apartmentsData.json", function(text){
  function showCard(apartments){
   let out = '';
   let counter = 0;
-  let bedsArray = [], imgArray = [],titleArray = [], priceArray = [];
+  let capacityArray = [], imgArray = [],titleArray = [], priceArray = [], countArray = [];
   for(let key in apartments){
-    imgArray.push(apartments[key].img);
+    imgArray.push(apartments[key].img_card);
     localStorage.setItem('apartments-img',JSON.stringify(imgArray));
     titleArray.push(apartments[key].title)
     localStorage.setItem('apartments-title',JSON.stringify(titleArray));
     priceArray.push(apartments[key].price); 
     localStorage.setItem('apartments-price',JSON.stringify(priceArray));
-    bedsArray.push(apartments[key].beds);
-    localStorage.setItem('apartments-beds', JSON.stringify(bedsArray));
+    capacityArray.push(apartments[key].capacity);
+    localStorage.setItem('apartments-capacity', JSON.stringify(capacityArray));
+    countArray.push(apartments[key].count);
+    localStorage.setItem('apartments-counts', JSON.stringify(countArray));
     out+=` <div data-num =${counter} class="border">
           <div class="wrap">
             <div class="product-wrap">
-              <a href=""><img src="../img/apartments-data/${apartments[key].img}" alt = "${apartments[key].title}"></a>
+              <a href=""><img src="../img/rooms/${apartments[key].img_card}" alt = "${apartments[key].title}"></a>
             </div>
             <div class="product-info">
             <h3 class="product-title">${apartments[key].title}</h3>
-            <div class="price">&#8372; ${apartments[key].price}/${apartments[key].beds}-bed room</div>
+            <div class="price">&#8372; ${apartments[key].price}/${apartments[key].capacity}-person <br/> <span class = "count-red">${apartments[key].count}</span> free rooms </div>
             <a href="../pages/room.html" class="add-to-cart" target = "_self">See More</a>
         </div>
           </div>
@@ -65,7 +67,7 @@ readTextFile("../js/data/apartmentsData.json", function(text){
 /*------------------------------------------ Pagination ------------------------------------------*/
 function showDataPagination(count_loots){
     let count = count_loots; 
-    let cnt = 3; 
+    let cnt = 6; 
     let cnt_page = Math.ceil(count / cnt); 
 
     //show pages list

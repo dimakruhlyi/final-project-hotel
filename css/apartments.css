@@ -223,6 +223,10 @@ body {
   font-family: "Nexa-Bold";
   color: #162546;
   font-weight: bold;
+  font-style: italic;
+}
+.count-red{
+  color:red;
 }
 /*>>>>>>>>>>>>>>>>>>>>>>>>>>> Pagination Block */
 .pagination-block{
