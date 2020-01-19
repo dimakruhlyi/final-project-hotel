@@ -178,9 +178,12 @@
       top:-30px;
     }
   }
-  @media screen and (max-width: 385px){
+  @media screen and (max-width: 388px){
     .data-block .info-block{
       height: 900px;
+    }
+    .data-block .book-block{
+      height:320px;
     }
   }
   @media screen and (max-width: 370px){

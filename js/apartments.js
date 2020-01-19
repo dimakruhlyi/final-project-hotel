@@ -19,11 +19,10 @@ function readTextFile(file, callback) {
 }
 readTextFile("../js/data/apartmentsData.json", function(text){
   let data = JSON.parse(text);
-  //console.log(data);
   
+  addDataToLocalstorage(data);
   let count_loots = showCard(data);
   showDataPagination(count_loots);
-  //console.log(count_loots);
   
 });
 
@@ -31,18 +30,7 @@ readTextFile("../js/data/apartmentsData.json", function(text){
  function showCard(apartments){
   let out = '';
   let counter = 0;
-  let capacityArray = [], imgArray = [],titleArray = [], priceArray = [], countArray = [];
   for(let key in apartments){
-    imgArray.push(apartments[key].img_card);
-    localStorage.setItem('apartments-img',JSON.stringify(imgArray));
-    titleArray.push(apartments[key].title)
-    localStorage.setItem('apartments-title',JSON.stringify(titleArray));
-    priceArray.push(apartments[key].price); 
-    localStorage.setItem('apartments-price',JSON.stringify(priceArray));
-    capacityArray.push(apartments[key].capacity);
-    localStorage.setItem('apartments-capacity', JSON.stringify(capacityArray));
-    countArray.push(apartments[key].count);
-    localStorage.setItem('apartments-counts', JSON.stringify(countArray));
     out+=` <div data-num =${counter} class="border">
           <div class="wrap">
             <div class="product-wrap">
@@ -51,7 +39,7 @@ readTextFile("../js/data/apartmentsData.json", function(text){
             <div class="product-info">
             <h3 class="product-title">${apartments[key].title}</h3>
             <div class="price">&#8372; ${apartments[key].price}/${apartments[key].capacity}-person <br/> <span class = "count-red">${apartments[key].count}</span> free rooms </div>
-            <a href="../pages/room.html" class="add-to-cart" target = "_self">See More</a>
+            <a class="add-to-cart" target = "_self" onclick="chooseCurrentRoom(${apartments[key].id})">See More</a>
         </div>
           </div>
           
@@ -63,6 +51,29 @@ readTextFile("../js/data/apartmentsData.json", function(text){
   return counter;
  }
  
+/*------------------------------------------ Find and add current room to localstorage ------------------------------------------*/
+ function chooseCurrentRoom(roomId) {
+   let current = {};
+  for(let i = 0; i < JSON.parse(localStorage.getItem('room_id')).length; i++){
+    if(JSON.parse(localStorage.getItem('room_id'))[i] === roomId){
+      current.id = JSON.parse(localStorage.getItem('room_id'))[i];
+      current.title = JSON.parse(localStorage.getItem('room_title'))[i];
+      current.count = JSON.parse(localStorage.getItem('room_count'))[i];
+      current.price = JSON.parse(localStorage.getItem('room_price'))[i];
+      current.capacity = JSON.parse(localStorage.getItem('room_capacity'))[i];
+      current.bedType = JSON.parse(localStorage.getItem('room_bedType'))[i];
+      current.imgSlider = JSON.parse(localStorage.getItem('room_imgSlider'))[i];
+      current.comfort = JSON.parse(localStorage.getItem('room_comfort'))[i];
+      current.view = JSON.parse(localStorage.getItem('room_view'))[i];
+      current.technology = JSON.parse(localStorage.getItem('room_technology'))[i];
+      current.refreshment = JSON.parse(localStorage.getItem('room_refreshmentCorner'))[i];
+      current.accessories = JSON.parse(localStorage.getItem('room_accessories'))[i];
+      current.description = JSON.parse(localStorage.getItem('room_description'))[i];
+    }
+  }
+  localStorage.setItem("currentRoom", JSON.stringify(current));
+  window.location.href = '../pages/room.html';
+}
 
 /*------------------------------------------ Pagination ------------------------------------------*/
 function showDataPagination(count_loots){
@@ -115,5 +126,54 @@ function showDataPagination(count_loots){
       div_num[i].style.display = "block";
       j++;
     }
+  }
+}
+/*------------------------------------------ Add data to localstorage ------------------------------------------*/
+function addDataToLocalstorage(apartments){
+  let idArray = [], capacityArray = [], imgCardArray = [],titleArray = [], priceArray = [], countArray = []
+  bedTypeArray = [], imgSliderArray = [], comfortArray = [], viewArray = [], technologyArray = [],
+  refreshmentArray = [], accessoriesArray = [], descriptionArray = [];
+  for(let key in apartments){
+      idArray.push(apartments[key].id)
+      localStorage.setItem('room_id',JSON.stringify(idArray));
+
+      titleArray.push(apartments[key].title)
+      localStorage.setItem('room_title',JSON.stringify(titleArray));
+
+      countArray.push(apartments[key].count);
+      localStorage.setItem('room_count', JSON.stringify(countArray));
+
+      priceArray.push(apartments[key].price); 
+      localStorage.setItem('room_price',JSON.stringify(priceArray));
+
+      capacityArray.push(apartments[key].capacity);
+      localStorage.setItem('room_capacity', JSON.stringify(capacityArray));
+
+      bedTypeArray.push(apartments[key].bed_type);
+      localStorage.setItem('room_bedType', JSON.stringify(bedTypeArray));
+      
+      imgCardArray.push(apartments[key].img_card);
+      localStorage.setItem('room_imgCard',JSON.stringify(imgCardArray));
+ 
+      imgSliderArray.push(apartments[key].img_slider);
+      localStorage.setItem('room_imgSlider',JSON.stringify(imgSliderArray));
+
+      comfortArray.push(apartments[key].comfort);
+      localStorage.setItem('room_comfort', JSON.stringify(comfortArray));
+
+      viewArray.push(apartments[key].view);
+      localStorage.setItem('room_view', JSON.stringify(viewArray));
+
+      technologyArray.push(apartments[key].technology);
+      localStorage.setItem('room_technology', JSON.stringify(technologyArray));
+
+      refreshmentArray.push(apartments[key].refreshment_corner);
+      localStorage.setItem('room_refreshmentCorner', JSON.stringify(refreshmentArray));
+
+      accessoriesArray.push(apartments[key].room_accessories);
+      localStorage.setItem('room_accessories', JSON.stringify(accessoriesArray));
+
+      descriptionArray.push(apartments[key].description);
+      localStorage.setItem('room_description', JSON.stringify(descriptionArray));
   }
 }
