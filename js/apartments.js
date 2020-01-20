@@ -31,48 +31,34 @@ readTextFile("../js/data/apartmentsData.json", function(text){
   let out = '';
   let counter = 0;
   for(let key in apartments){
-    out+=` <div data-num =${counter} class="border">
-          <div class="wrap">
-            <div class="product-wrap">
-              <a href=""><img src="../img/rooms/${apartments[key].img_card}" alt = "${apartments[key].title}"></a>
-            </div>
-            <div class="product-info">
-            <h3 class="product-title">${apartments[key].title}</h3>
-            <div class="price">&#8372; ${apartments[key].price}/${apartments[key].capacity}-person <br/> <span class = "count-red">${apartments[key].count}</span> free rooms </div>
-            <a class="add-to-cart" target = "_self" onclick="chooseCurrentRoom(${apartments[key].id})">See More</a>
-        </div>
-          </div>
-          
-        </div>
-    `;
+    out+=`  <div data-num =${counter} class="border">
+              <div class="wrap">
+                <div class="product-wrap">
+                  <a href=""><img src="../img/rooms/${apartments[key].img_card}" alt = "${apartments[key].title}"></a>
+                </div>
+                <div class="product-info">
+                  <h3 class="product-title">${apartments[key].title}</h3>
+                  <div class="price">&#8372; ${apartments[key].price}/${apartments[key].capacity}-person <br/> <span class = "count-red">${apartments[key].count}</span> free rooms </div>
+                  <a class="add-to-cart"  target = "_self" onclick = 'chooseCurrentRoom(${JSON.stringify(apartments[key])}, ${apartments[key].id})'>See More</a>
+                </div>
+              </div> 
+            </div> `;
     counter++;
   }
+ 
   document.getElementById('apartments-data').innerHTML = out;
   return counter;
  }
- 
+  
 /*------------------------------------------ Find and add current room to localstorage ------------------------------------------*/
- function chooseCurrentRoom(roomId) {
-   let current = {};
+function chooseCurrentRoom(object,roomId) {
   for(let i = 0; i < JSON.parse(localStorage.getItem('room_id')).length; i++){
-    if(JSON.parse(localStorage.getItem('room_id'))[i] === roomId){
-      current.id = JSON.parse(localStorage.getItem('room_id'))[i];
-      current.title = JSON.parse(localStorage.getItem('room_title'))[i];
-      current.count = JSON.parse(localStorage.getItem('room_count'))[i];
-      current.price = JSON.parse(localStorage.getItem('room_price'))[i];
-      current.capacity = JSON.parse(localStorage.getItem('room_capacity'))[i];
-      current.bedType = JSON.parse(localStorage.getItem('room_bedType'))[i];
-      current.imgSlider = JSON.parse(localStorage.getItem('room_imgSlider'))[i];
-      current.comfort = JSON.parse(localStorage.getItem('room_comfort'))[i];
-      current.view = JSON.parse(localStorage.getItem('room_view'))[i];
-      current.technology = JSON.parse(localStorage.getItem('room_technology'))[i];
-      current.refreshment = JSON.parse(localStorage.getItem('room_refreshmentCorner'))[i];
-      current.accessories = JSON.parse(localStorage.getItem('room_accessories'))[i];
-      current.description = JSON.parse(localStorage.getItem('room_description'))[i];
+    if(JSON.parse(localStorage.getItem("room_id"))[i] == roomId)
+    {
+      localStorage.setItem("currentRoom",JSON.stringify(object));
+      window.location.href = "../pages/room.html";
     }
   }
-  localStorage.setItem("currentRoom", JSON.stringify(current));
-  window.location.href = '../pages/room.html';
 }
 
 /*------------------------------------------ Pagination ------------------------------------------*/

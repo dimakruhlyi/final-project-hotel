@@ -13,9 +13,9 @@ function include(url) {
     <h1>${JSON.parse(localStorage.getItem('currentRoom')).title}</h1>
     <div class="main-slider">
      <div class="slider">
-         <img class="slide slide_current" src="../img/rooms/${(JSON.parse(localStorage.getItem('currentRoom')).imgSlider).split(' ')[0]}" alt="Slide 1">
-         <img class="slide" src="../img/rooms/${(JSON.parse(localStorage.getItem('currentRoom')).imgSlider).split(' ')[1]}" alt="Slide 2">
-         <img class="slide" src="../img/rooms/${(JSON.parse(localStorage.getItem('currentRoom')).imgSlider).split(' ')[2]}" alt="Slide 3">
+         <img class="slide slide_current" src="../img/rooms/${(JSON.parse(localStorage.getItem('currentRoom')).img_slider).split(' ')[0]}" alt="Slide 1">
+         <img class="slide" src="../img/rooms/${(JSON.parse(localStorage.getItem('currentRoom')).img_slider).split(' ')[1]}" alt="Slide 2">
+         <img class="slide" src="../img/rooms/${(JSON.parse(localStorage.getItem('currentRoom')).img_slider).split(' ')[2]}" alt="Slide 3">
      </div>
      <div class="arrow arrow_prev">
          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 257.6 451.8">
@@ -43,13 +43,13 @@ function include(url) {
          <h3>Features of the ${JSON.parse(localStorage.getItem('currentRoom')).title}</h3>
          <ul>
              <li><span>COUNT:</span>  ${JSON.parse(localStorage.getItem('currentRoom')).count} free rooms</li>
-             <li><span>BED TYPE:</span>  ${JSON.parse(localStorage.getItem('currentRoom')).bedType}</li>
+             <li><span>BED TYPE:</span>  ${JSON.parse(localStorage.getItem('currentRoom')).bed_type}</li>
              <li><span>CAPACITY:</span>  ${JSON.parse(localStorage.getItem('currentRoom')).capacity} person</li>
              <li><span>COMFORT:</span> ${JSON.parse(localStorage.getItem('currentRoom')).comfort}</li>
              <li><span>VIEW:</span> ${JSON.parse(localStorage.getItem('currentRoom')).view}</li>
              <li><span>TECHNOLOGY & MEDIA:</span> ${JSON.parse(localStorage.getItem('currentRoom')).technology}</li>
-             <li><span>REFRESHMENT CORNER:</span> ${JSON.parse(localStorage.getItem('currentRoom')).refreshment}</li>
-             <li><span>ROOM ACCESSORIES:</span> ${JSON.parse(localStorage.getItem('currentRoom')).accessories}</li>
+             <li><span>REFRESHMENT CORNER:</span> ${JSON.parse(localStorage.getItem('currentRoom')).refreshment_corner}</li>
+             <li><span>ROOM ACCESSORIES:</span> ${JSON.parse(localStorage.getItem('currentRoom')).room_accessories}</li>
          </ul>
          <h3>Description</h3>
          <p>
