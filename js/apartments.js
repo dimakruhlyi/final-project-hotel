@@ -34,7 +34,7 @@ readTextFile("../js/data/apartmentsData.json", function(text){
     out+=`  <div data-num =${counter} class="border">
               <div class="wrap">
                 <div class="product-wrap">
-                  <a href=""><img src="../img/rooms/${apartments[key].img_card}" alt = "${apartments[key].title}"></a>
+                  <a href=""><img src="../img/rooms/${apartments[key].img_slider.split(' ')[0]}" alt = "${apartments[key].title}"></a>
                 </div>
                 <div class="product-info">
                   <h3 class="product-title">${apartments[key].title}</h3>
@@ -116,7 +116,7 @@ function showDataPagination(count_loots){
 }
 /*------------------------------------------ Add data to localstorage ------------------------------------------*/
 function addDataToLocalstorage(apartments){
-  let idArray = [], capacityArray = [], imgCardArray = [],titleArray = [], priceArray = [], countArray = []
+  let idArray = [], capacityArray = [],titleArray = [], priceArray = [], countArray = []
   bedTypeArray = [], imgSliderArray = [], comfortArray = [], viewArray = [], technologyArray = [],
   refreshmentArray = [], accessoriesArray = [], descriptionArray = [];
   for(let key in apartments){
@@ -137,9 +137,6 @@ function addDataToLocalstorage(apartments){
 
       bedTypeArray.push(apartments[key].bed_type);
       localStorage.setItem('room_bedType', JSON.stringify(bedTypeArray));
-      
-      imgCardArray.push(apartments[key].img_card);
-      localStorage.setItem('room_imgCard',JSON.stringify(imgCardArray));
  
       imgSliderArray.push(apartments[key].img_slider);
       localStorage.setItem('room_imgSlider',JSON.stringify(imgSliderArray));
