@@ -108,11 +108,12 @@ body {
     .top-info .reserv-block {
       text-align: center;
       background: #f0793a;
-      cursor: pointer; }
-      .top-info .reserv-block p {
+      cursor: pointer; 
+      width:80px;}
+      .top-info .reserv-block p, .top-info .reserv-block span {
         padding-top: 10px;
         color: #fff; }
-      .top-info .reserv-block p:hover {
+      .top-info .reserv-block p:hover, .top-info .reserv-block span:last-child:hover {
         text-decoration: underline; }
   
   /*------------------------------------------ Apartments------------------------------------------*/

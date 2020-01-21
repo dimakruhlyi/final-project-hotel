@@ -44,8 +44,8 @@
                 <img src="../img/call-us-logo.png" alt="Logo" width="60px" height="60px">
                 <p class="phone-number"><span class="text-call"> Call us </span><br><a href="tel:+380664579764"> +(380)66-457-97-64</a></p>
             </div>
-            <div class="reserv-block">
-                <a href="../pages/authorization.html" target = "_self"><p>Reservation</p></a>
+            <div class="reserv-block" id="menuLogin">
+                
             </div>
         </div>  
     </div>
@@ -55,16 +55,16 @@
     <div class="login-page">
       <div class="form">
         <form class="register-form">
-          <input type="text" placeholder="name*" required/>
-          <input type="password" placeholder="password*" required/>
-          <input type="email" placeholder="email address*" required/>
-          <button>create</button>
+          <input type="text" placeholder="name*" id="registerLogin" required />
+          <input type="password" placeholder="password*" id="registerPS" required />
+          <input type="email" placeholder="email address*" id="registerMail" required />
+          <button id="createBtn">create</button>
           <p class="message">Already registered? <a href="#" onclick="showLoginForm()">Sign In</a></p>
         </form>
         <form class="login-form">
-          <input type="text" placeholder="username*" required/>
-          <input type="password" placeholder="password*" required/>
-          <button>login</button>
+          <input type="text" placeholder="username*" id="Login" required/>
+          <input type="password" placeholder="password*" id="PS" required/>
+          <button type="button" id="loginBtn">login</button>
           <p class="message">Not registered? <a href="#" class="sign_in"  onclick="showRegisterForm()">Create an account</a></p>
         </form>
       </div>
