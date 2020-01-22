@@ -64,7 +64,7 @@ function include(url) {
         <hr>
         <label for="secialcode">Special Code:</label> <input type="text" id="secialcode">
         <hr>
-        <a href="#"><div class="book-button">
+        <a href="#"><div class="book-button" id = "bookBtn">
             Book Now
         </div></a>
      </div>
@@ -127,3 +127,39 @@ if(JSON.parse(localStorage.getItem('authorization_FLAG'))){
   else{
    document.getElementById('menuLogin').innerHTML = '<a href="../pages/authorization.html" target = "_self" ><p>Log in</p></a>';
   }
+  /*------------------------------------------Booking------------------------------------------*/
+  let booking = localStorage.getItem('booking') ? JSON.parse(localStorage.getItem('booking')) : [];
+  localStorage.setItem('booking', JSON.stringify(booking));
+
+  document.getElementById('bookBtn').addEventListener('click', function(){
+    if(!JSON.parse(localStorage.getItem('authorization_FLAG'))){
+        alert("You must LOG IN!");
+    }else{
+        if(JSON.parse(localStorage.getItem('currentRoom')).count == 0){
+            alert("There isn't free rooms now!");
+        }else{
+            let firstDate = document.getElementById('firstdate');
+            let secondDate = document.getElementById('seconddate');
+            let specialCode = document.getElementById('secialcode');
+            if( firstDate.value > secondDate.value){
+                alert("Incorrect DATE!")
+            }else{
+                let adultsCount = document.getElementById('adultscount');
+                let bookingData = {
+                    bookingRoomId: JSON.parse(localStorage.getItem('currentRoom')).id,
+                    bookingRoomTitle: JSON.parse(localStorage.getItem('currentRoom')).title,
+                    bookingDateFirst: firstDate.value,
+                    bookingDateSecond: secondDate.value,
+                    bookingAdultsCount: adultsCount.value,
+                    bookingSpecialCode: specialCode.value,
+                    bookingUser: JSON.parse(localStorage.getItem('current_user'))
+                };
+                booking.push(bookingData);
+                localStorage.setItem('booking', JSON.stringify(booking));
+                alert("You have successfully booked "+ bookingData.bookingRoomTitle);
+            }
+           
+               
+        }
+    }
+});

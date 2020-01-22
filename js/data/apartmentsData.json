@@ -62,7 +62,7 @@
     "0005":{
       "id": 5,
       "title": "Junior Suite",
-      "count": "none",
+      "count": 0,
       "price": 2399,
       "capacity": 2,
       "bed_type": "King",
@@ -137,7 +137,7 @@
     "00010":{
       "id": 10,
       "title": "3 Bedroom Apartment",
-      "count": "none",
+      "count": 0,
       "price": 4799,
       "capacity": 4,
       "bed_type": "Twin",
@@ -182,7 +182,7 @@
     "00013":{
       "id": 13,
       "title": "2 Bedroom Apartment",
-      "count": "none",
+      "count": 0,
       "price": 2899,
       "capacity": 2,
       "bed_type": "Twin",
@@ -197,7 +197,7 @@
     "00014":{
       "id": 14,
       "title": "Family Room",
-      "count": "none",
+      "count": 0,
       "price": 3199,
       "capacity": 5,
       "bed_type": "Twin",
