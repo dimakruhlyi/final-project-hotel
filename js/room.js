@@ -62,9 +62,9 @@ function include(url) {
         <hr>
         <label for="adultscount">Adults:</label> <input type="number" id="adultscount" value="1" min="1" max = "${JSON.parse(localStorage.getItem('currentRoom')).capacity}">
         <hr>
-        <label for="secialcode">Special Code:</label> <input type="text" id="secialcode">
+        <label for="secialcode">Special Code:</label> <input type="text" id="secialcode" placeholder = "if you have">
         <hr>
-        <a href="#"><div class="book-button" id = "bookBtn">
+        <a><div class="book-button" id = "bookBtn">
             Book Now
         </div></a>
      </div>
@@ -144,6 +144,8 @@ if(JSON.parse(localStorage.getItem('authorization_FLAG'))){
             if( firstDate.value > secondDate.value){
                 alert("Incorrect DATE!")
             }else{
+                let modalContent = "";
+
                 let adultsCount = document.getElementById('adultscount');
                 let bookingData = {
                     bookingRoomId: JSON.parse(localStorage.getItem('currentRoom')).id,
@@ -154,12 +156,32 @@ if(JSON.parse(localStorage.getItem('authorization_FLAG'))){
                     bookingSpecialCode: specialCode.value,
                     bookingUser: JSON.parse(localStorage.getItem('current_user'))
                 };
-                booking.push(bookingData);
-                localStorage.setItem('booking', JSON.stringify(booking));
-                alert("You have successfully booked "+ bookingData.bookingRoomTitle);
-            }
-           
-               
+                //booking.push(bookingData);
+                //localStorage.setItem('booking', JSON.stringify(booking));
+
+                modalContent = `
+                            <div class="modal_content">
+                                <span class="close_modal_window">×</span>
+                                <h3>Booking Data</h3>
+                                <p><span>Room Title: </span>${bookingData.bookingRoomTitle}</p>
+                                <p><span>Start Date: </span>${bookingData.bookingDateFirst}</p>
+                                <p><span>Finish Date: </span>${bookingData.bookingDateSecond}</p>
+                                <p><span>Adults: </span>${bookingData.bookingAdultsCount}</p>
+                                <p><span>Special Code: </span>${bookingData.bookingSpecialCode}</p>
+                                <h3>Booking is successful. Thank you!</h3>
+                            </div>`;
+                document.getElementById('my_modal').innerHTML = modalContent;
+                let modal = document.getElementById("my_modal");
+                let span = document.getElementsByClassName("close_modal_window")[0];
+
+                modal.style.display = "block";
+                span.onclick =  function () { modal.style.display = "none"; };
+                window.onclick = function (event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
+            }     
         }
     }
 });
