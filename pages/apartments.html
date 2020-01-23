@@ -54,7 +54,15 @@
 <section class="apartments container" >
     <div class="fliter-block">
         <div class="search-block"></div>
-        <div class="sort-block"></div>
+        <div class="sort-block">
+            <div class="dropdown2">
+                <select name="sorting" class="dropdown2-select" id="sorting">
+                  <option value="default" selected>Default</option>
+                  <option value="low" >Sort by lowest price</option>
+                  <option value="hight">Sort by highest price</option>
+                </select>
+            </div>
+        </div>
     </div>
     <div id="apartments-data" class="apartments-data-inner"></div>
     <div class="pagination-block" id="pagination-block"></div>

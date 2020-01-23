@@ -19,17 +19,36 @@ function readTextFile(file, callback) {
 }
 readTextFile("../js/data/apartmentsData.json", function(text){
   let data = JSON.parse(text);
+ /*>>>>>>>>>>>>>>>>>>>>>>>>>>> Set loading FLag */
   let loadDataFlag = localStorage.getItem('loadDataFlag') ? JSON.parse(localStorage.getItem('loadDataFlag')) : true;
   localStorage.setItem('loadDataFlag', JSON.stringify(loadDataFlag));
   if(JSON.parse(localStorage.getItem('loadDataFlag'))){
     addDataToLocalstorage(data);
     localStorage.setItem('loadDataFlag',false);
   }
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>> Show Cards */
   let count_loots = showCard(data);
   showDataPagination(count_loots);
-  
-});
 
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>> Select Sorting */
+  let selectSorting = document.getElementById("sorting");
+  selectSorting.addEventListener('change', function() {
+    let selectedOption = selectSorting.options[selectSorting.selectedIndex].value;
+    if (selectedOption == 'low') {
+      showCard(sortLow(data));
+      showDataPagination(count_loots);
+    }
+    if (selectedOption == 'hight') {
+      showCard(sortHight(data));
+      showDataPagination(count_loots);
+    }
+    if (selectedOption == 'default') {
+      showCard(data);
+      showDataPagination(count_loots);
+    }
+  });
+   
+});
 
  function showCard(apartments){
   let out = '';
@@ -42,14 +61,13 @@ readTextFile("../js/data/apartmentsData.json", function(text){
                 </div>
                 <div class="product-info">
                   <h3 class="product-title">${apartments[key].title}</h3>
-                  <div class="price">&#8372; ${apartments[key].price}/${apartments[key].capacity}-person <br/> <span class = "count-red">${JSON.parse(localStorage.getItem('room_count'))[counter]}</span> free rooms </div>
+                  <div class="price">&#8372;${apartments[key].price} / ${apartments[key].capacity}-person <span class = "count-red"><br/> ${JSON.parse(localStorage.getItem('room_count'))[counter]}</span> free rooms  </div>
                   <a class="add-to-cart"  target = "_self" onclick = 'chooseCurrentRoom(${JSON.stringify(apartments[key])}, ${apartments[key].id})'>See More</a>
                 </div>
               </div> 
             </div> `;
     counter++;
   }
- 
   document.getElementById('apartments-data').innerHTML = out;
   return counter;
  }
@@ -180,4 +198,29 @@ if(JSON.parse(localStorage.getItem('authorization_FLAG'))){
 }
 else{
  document.getElementById('menuLogin').innerHTML = '<a href="../pages/authorization.html" target = "_self" ><p>Log in</p></a>';
+}
+/*------------------------------------------ Sorting ------------------------------------------*/
+function sortLow(data){
+  let tempArray = new Array();
+  for(let key in data){
+    tempArray.push(data[key]);
+  }
+  sortLowFunction(tempArray);
+  return tempArray;
+}
+
+function sortHight(data){
+  let tempArray = new Array();
+  for(let key in data){
+    tempArray.push(data[key]);
+  }
+  sortHightFunction(tempArray);
+  return tempArray;
+}
+
+function sortLowFunction(arr) {
+  arr.sort((a, b) => a.price > b.price ? 1 : -1);
+}
+function sortHightFunction(arr) {
+  arr.sort((a, b) => a.price < b.price ? 1 : -1);
 }
