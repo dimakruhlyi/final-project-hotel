@@ -19,8 +19,12 @@ function readTextFile(file, callback) {
 }
 readTextFile("../js/data/apartmentsData.json", function(text){
   let data = JSON.parse(text);
-  
-  addDataToLocalstorage(data);
+  let loadDataFlag = localStorage.getItem('loadDataFlag') ? JSON.parse(localStorage.getItem('loadDataFlag')) : true;
+  localStorage.setItem('loadDataFlag', JSON.stringify(loadDataFlag));
+  if(JSON.parse(localStorage.getItem('loadDataFlag'))){
+    addDataToLocalstorage(data);
+    localStorage.setItem('loadDataFlag',false);
+  }
   let count_loots = showCard(data);
   showDataPagination(count_loots);
   
@@ -38,7 +42,7 @@ readTextFile("../js/data/apartmentsData.json", function(text){
                 </div>
                 <div class="product-info">
                   <h3 class="product-title">${apartments[key].title}</h3>
-                  <div class="price">&#8372; ${apartments[key].price}/${apartments[key].capacity}-person <br/> <span class = "count-red">${apartments[key].count}</span> free rooms </div>
+                  <div class="price">&#8372; ${apartments[key].price}/${apartments[key].capacity}-person <br/> <span class = "count-red">${JSON.parse(localStorage.getItem('room_count'))[counter]}</span> free rooms </div>
                   <a class="add-to-cart"  target = "_self" onclick = 'chooseCurrentRoom(${JSON.stringify(apartments[key])}, ${apartments[key].id})'>See More</a>
                 </div>
               </div> 
@@ -56,6 +60,9 @@ function chooseCurrentRoom(object,roomId) {
     if(JSON.parse(localStorage.getItem("room_id"))[i] == roomId)
     {
       localStorage.setItem("currentRoom",JSON.stringify(object));
+      let tempCurrentObj = JSON.parse(localStorage.getItem('currentRoom'));
+      tempCurrentObj.count = JSON.parse(localStorage.getItem('room_count'))[i];
+      localStorage.setItem("currentRoom",JSON.stringify(tempCurrentObj));
       window.location.href = "../pages/room.html";
     }
   }

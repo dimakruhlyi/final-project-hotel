@@ -156,8 +156,11 @@ if(JSON.parse(localStorage.getItem('authorization_FLAG'))){
                     bookingSpecialCode: specialCode.value,
                     bookingUser: JSON.parse(localStorage.getItem('current_user'))
                 };
-                //booking.push(bookingData);
-                //localStorage.setItem('booking', JSON.stringify(booking));
+                booking.push(bookingData);
+                localStorage.setItem('booking', JSON.stringify(booking));
+                
+                let changedCount = JSON.parse(localStorage.getItem('currentRoom')).count - 1;
+                changeRoomCount(bookingData.bookingRoomId, changedCount);
 
                 modalContent = `
                             <div class="modal_content">
@@ -181,7 +184,23 @@ if(JSON.parse(localStorage.getItem('authorization_FLAG'))){
                         modal.style.display = "none";
                     }
                 }
+
             }     
         }
     }
 });
+
+function changeRoomCount(id, count){
+    let tempArray = new Array();
+    let tempObj = JSON.parse(localStorage.getItem('currentRoom'));
+   for(let i = 0; i < JSON.parse(localStorage.getItem('room_id')).length; i++){
+       if(JSON.parse(localStorage.getItem('room_id'))[i] == id){
+        tempArray.push(count);
+        tempObj.count = count;
+        }else{
+            tempArray.push(JSON.parse(localStorage.getItem('room_count'))[i]);
+        }
+   }
+   localStorage.setItem('room_count',JSON.stringify(tempArray));
+   localStorage.setItem('currentRoom', JSON.stringify(tempObj));
+}
