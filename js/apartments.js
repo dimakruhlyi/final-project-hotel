@@ -61,7 +61,7 @@ readTextFile("../js/data/apartmentsData.json", function(text){
                 </div>
                 <div class="product-info">
                   <h3 class="product-title">${apartments[key].title}</h3>
-                  <div class="price">&#8372;${apartments[key].price} / ${apartments[key].capacity}-person <span class = "count-red"><br/> ${JSON.parse(localStorage.getItem('room_count'))[counter]}</span> free rooms  </div>
+                  <div class="price">&#8372;<span class = "price-red">${apartments[key].price}</span> / ${apartments[key].capacity}-person</div>
                   <a class="add-to-cart"  target = "_self" onclick = 'chooseCurrentRoom(${JSON.stringify(apartments[key])}, ${apartments[key].id})'>See More</a>
                 </div>
               </div> 
@@ -202,8 +202,10 @@ else{
 /*------------------------------------------ Sorting ------------------------------------------*/
 function sortLow(data){
   let tempArray = new Array();
+  let i = 0;
   for(let key in data){
     tempArray.push(data[key]);
+    i++;
   }
   sortLowFunction(tempArray);
   return tempArray;

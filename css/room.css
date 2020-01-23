@@ -274,6 +274,9 @@ body {
 .info-block  ul  span{
     color:#083b5a;
 }
+.info-block ul .count-red{
+  color: red;
+}
 .info-block p{
     font-family: 'Nexa-Regular';
     font-size: 15px;

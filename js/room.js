@@ -42,7 +42,7 @@ function include(url) {
      <div class="info-block">
          <h3>Features of the ${JSON.parse(localStorage.getItem('currentRoom')).title}</h3>
          <ul>
-             <li><span>COUNT:</span>  ${JSON.parse(localStorage.getItem('currentRoom')).count} free rooms</li>
+             <li><span>COUNT:</span> <span class = "count-red"> ${JSON.parse(localStorage.getItem('currentRoom')).count}</span> free rooms</li>
              <li><span>BED TYPE:</span>  ${JSON.parse(localStorage.getItem('currentRoom')).bed_type}</li>
              <li><span>CAPACITY:</span>  ${JSON.parse(localStorage.getItem('currentRoom')).capacity} person</li>
              <li><span>COMFORT:</span> ${JSON.parse(localStorage.getItem('currentRoom')).comfort}</li>
