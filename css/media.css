@@ -111,6 +111,18 @@
         text-align: center;
     }
   }
+  @media screen and (max-width: 600px){
+   .apartments .fliter-block .search-block{
+     height:140px;
+    text-align: center;
+   }
+   .apartments .fliter-block .search-block .search-categorie{
+     margin:0 auto;
+   }
+   .sort-block{
+    margin:0 auto;
+    }
+  }
   @media screen and (max-width: 580px){
     .data-block .info-block{
       height: 700px;

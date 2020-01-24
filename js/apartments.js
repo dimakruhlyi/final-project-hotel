@@ -141,7 +141,7 @@ function showDataPagination(count_loots){
 }
 /*------------------------------------------ Add data to localstorage ------------------------------------------*/
 function addDataToLocalstorage(apartments){
-  let idArray = [], capacityArray = [],titleArray = [], priceArray = [], countArray = []
+  let idArray = [], capacityArray = [],titleArray = [], priceArray = [], countArray = [], roomTypeAray = [],
   bedTypeArray = [], imgSliderArray = [], comfortArray = [], viewArray = [], technologyArray = [],
   refreshmentArray = [], accessoriesArray = [], descriptionArray = [];
   for(let key in apartments){
@@ -159,6 +159,9 @@ function addDataToLocalstorage(apartments){
 
       capacityArray.push(apartments[key].capacity);
       localStorage.setItem('room_capacity', JSON.stringify(capacityArray));
+
+      roomTypeAray.push(apartments[key].room_type);
+      localStorage.setItem('room_type', JSON.stringify(roomTypeAray));
 
       bedTypeArray.push(apartments[key].bed_type);
       localStorage.setItem('room_bedType', JSON.stringify(bedTypeArray));

@@ -126,8 +126,42 @@ body {
 }
 .search-block{
   width:600px;
-  height:50px;
-  background: green;
+  height:70px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.search-categorie{
+  width:300px;
+  height:35px;
+  font-family: 'Nexa-Regular';
+  font-size: 13px;
+}
+.search-categorie:last-child{
+  text-align: center;
+}
+.search-categorie .category{
+  font-family: 'Nexa-Bold';
+  font-size: 15px;
+  color:#162546;
+}
+.search-categorie input{
+  position: relative;
+  top:3px;
+}
+.search-categorie button{
+  font-family: 'Nexa-Regular';
+  font-size: 20px;
+  width:100px;
+  height:30px;
+  color: #fff;
+  background-color: #f0793a;
+  border:0;
+}
+.search-categorie button:hover{
+  background: #162546;
+}
+.search-categorie button:active {
+ background: red;
 }
 /*>>>>>>>>>>>>>>>>>>>>>>>>>>> Sorting */
 .sort-block{
