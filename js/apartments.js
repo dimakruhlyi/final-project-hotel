@@ -30,20 +30,34 @@ readTextFile("../js/data/apartmentsData.json", function(text){
   let count_loots = showCard(data);
   showDataPagination(count_loots);
 
+
+
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>> Searching */
+  let searchingFlag = false;
+  let searchData = data;
+  document.getElementById('searchBtn').addEventListener('click', function(){
+    searchData = searching(data);
+    count_loots = showCard(searchData);
+    showDataPagination(count_loots);
+    searchingFlag = true;
+    //console.log(searchingFlag);
+    //console.log(data);
+  });
+ 
 /*>>>>>>>>>>>>>>>>>>>>>>>>>>> Select Sorting */
   let selectSorting = document.getElementById("sorting");
   selectSorting.addEventListener('change', function() {
     let selectedOption = selectSorting.options[selectSorting.selectedIndex].value;
     if (selectedOption == 'low') {
-      showCard(sortLow(data));
+     searchingFlag ?  showCard(sortLow(searchData)) : showCard(sortLow(data));
       showDataPagination(count_loots);
     }
     if (selectedOption == 'hight') {
-      showCard(sortHight(data));
+      searchingFlag ? showCard(sortHight(searchData)) : showCard(sortHight(data));
       showDataPagination(count_loots);
     }
     if (selectedOption == 'default') {
-      showCard(data);
+      searchingFlag ? showCard(searchData) : showCard(data);
       showDataPagination(count_loots);
     }
   });
@@ -57,7 +71,7 @@ readTextFile("../js/data/apartmentsData.json", function(text){
     out+=`  <div data-num =${counter} class="border">
               <div class="wrap">
                 <div class="product-wrap">
-                  <a href=""><img src="../img/rooms/${apartments[key].img_slider.split(' ')[0]}" alt = "${apartments[key].title}"></a>
+                  <img src="../img/rooms/${apartments[key].img_slider.split(' ')[0]}" alt = "${apartments[key].title}">
                 </div>
                 <div class="product-info">
                   <h3 class="product-title">${apartments[key].title}</h3>
@@ -109,7 +123,9 @@ function showDataPagination(count_loots){
     }
 
     let main_page = document.getElementById("page1");
-    main_page.classList.add("paginator_active");
+    //alert(main_page);
+    if(main_page == null) alert("No one data wasn't found!");
+    else main_page.classList.add("paginator_active");
 
   //next page with loots
   document.getElementById('pagination-block').onclick =  function (event) {
@@ -205,10 +221,8 @@ else{
 /*------------------------------------------ Sorting ------------------------------------------*/
 function sortLow(data){
   let tempArray = new Array();
-  let i = 0;
   for(let key in data){
     tempArray.push(data[key]);
-    i++;
   }
   sortLowFunction(tempArray);
   return tempArray;
@@ -229,3 +243,40 @@ function sortLowFunction(arr) {
 function sortHightFunction(arr) {
   arr.sort((a, b) => a.price < b.price ? 1 : -1);
 }
+/*------------------------------------------ Searching ------------------------------------------*/
+function searching(data){
+  let tempArray = new Array();
+  let bedType = checkRadio('bedType');
+  let view = checkRadio('view');
+  let roomType = checkRadio('roomType');
+  for(let key in data){
+    if(bedType != 0 || view != 0 || roomType != 0 ){
+      if((bedType == data[key].bed_type && view == data[key].view && roomType == data[key].room_type) || 
+      (bedType == data[key].bed_type && roomType == data[key].room_type && view == 0) || 
+      (view == data[key].view && roomType == data[key].room_type && bedType == 0) || (view == data[key].view && bedType == data[key].bed_type && roomType == 0) ||
+      (view == data[key].view && bedType == 0 && roomType == 0) || (bedType == data[key].bed_type && view == 0 && roomType == 0) || 
+      (roomType == data[key].room_type && view == 0 && bedType == 0)){
+        tempArray.push(data[key]);
+      }
+    }else{
+      tempArray.push(data[key]);
+    }  
+  }
+  return tempArray;
+}
+function checkRadio(name){
+  let temp = document.getElementsByName(`${name}`);
+  for(let i =0; i< temp.length; i++){
+    if(temp[i].checked){
+      return temp[i].value;
+    }
+  }
+  return 0;
+}
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>> Unchecked for radiobuttons */
+let a,b;
+function unchecked(c) {
+    if (a != c) {b = 0;a = c};
+    b ^= 1;
+    c.checked = b
+};

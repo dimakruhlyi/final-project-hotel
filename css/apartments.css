@@ -136,9 +136,6 @@ body {
   font-family: 'Nexa-Regular';
   font-size: 13px;
 }
-.search-categorie:last-child{
-  text-align: center;
-}
 .search-categorie .category{
   font-family: 'Nexa-Bold';
   font-size: 15px;
@@ -154,11 +151,11 @@ body {
   width:100px;
   height:30px;
   color: #fff;
-  background-color: #f0793a;
+  background-color: #162546;
   border:0;
 }
 .search-categorie button:hover{
-  background: #162546;
+  background: #f0793a;
 }
 .search-categorie button:active {
  background: red;

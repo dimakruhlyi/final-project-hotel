@@ -56,22 +56,22 @@
         <div class="search-block">
             <div class="search-categorie">
                 <span class="category">Bed type:</span> 
-                <input type="checkbox"> king 
-                <input type="checkbox"> twins
+                <input type="radio" name="bedType" value="king" onclick="unchecked(this)"> king 
+                <input type="radio" name="bedType" value="twin" onclick="unchecked(this)"> twin
             </div>
             <div class="search-categorie">
-                <span class="category">Capacity(people):</span> 
-                <input type="checkbox"> 1-3
-                <input type="checkbox"> 4-5
+                <span class="category">View:</span> 
+                <input type="radio" name="view" value="city" onclick="unchecked(this)"> city
+                <input type="radio" name="view" value="courtyard" onclick="unchecked(this)"> courtyard
             </div>
             <div class="search-categorie">
                 <span class="category">Room type:</span> 
-                <input type="checkbox"> room
-                <input type="checkbox"> suite
-                <input type="checkbox"> studio
+                <input type="radio" name="roomType" value="room" onclick="unchecked(this)"> room
+                <input type="radio" name="roomType" value="suite" onclick="unchecked(this)"> suite
+                <input type="radio" name="roomType" value="studio" onclick="unchecked(this)"> studio
             </div>
             <div class="search-categorie">
-                <button type="button">Search</button>
+                <button type="button" id="searchBtn">Search</button>
             </div>
            
         </div>
