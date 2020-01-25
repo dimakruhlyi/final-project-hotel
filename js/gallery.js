@@ -19,7 +19,6 @@ function readTextFile(file, callback) {
 }
 readTextFile("../js/data/galleryData.json", function(text){
   let data = JSON.parse(text);
-  //console.log(data);
   showGallery(data);
 });
 
@@ -27,13 +26,37 @@ function showGallery(gallery){
   let out = '';
   for(let key in gallery){
     out+=` <div class="demo1 flex-container">
-              <a href = "#${gallery[key].id}"><img src = "../img/gallery/${gallery[key].img}" at = "${gallery[key].alt}"/></a>
-              <figure id = "${gallery[key].id}" class="lbox flip"><img src="../img/gallery/${gallery[key].img}"><a href=""></a></figure>
+            <img src = "../img/gallery/${gallery[key].img}" at = "${gallery[key].alt}" id = "${gallery[key].id}"/>
         </div>
     `;
+   
   }
-
   document.getElementById('block-gallery').innerHTML = out;
+  for(let key in gallery){
+    document.getElementById(`${gallery[key].id}`).onclick = showModal(gallery[key].img,gallery[key].id);
+  }
+}
+function showModal(img, id){
+  let modalContent = '';
+  modalContent = `
+  <div class="modal_content">
+    <span class="close_modal_window"></span>
+    <img src = "../img/gallery/${img}" />
+  </div>
+  `;
+  document.getElementById(`${id}`).addEventListener('click', function(){
+    document.getElementById('my_modal').innerHTML = modalContent;
+    let modal = document.getElementById("my_modal");
+    let span = document.getElementsByClassName("close_modal_window")[0];
+
+    modal.style.display = "block";
+    span.onclick =  function () { modal.style.display = "none"; };
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+  });
 }  
   
 /*------------------------------------------ Check Logged In or NO------------------------------------------*/

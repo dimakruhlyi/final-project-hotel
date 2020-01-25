@@ -43,7 +43,6 @@
   .spa-procedures-inner{
       padding-top:0;
   }
-    
 }
 
 @media screen and (max-width: 768px) {
@@ -126,6 +125,9 @@
   @media screen and (max-width: 580px){
     .data-block .info-block{
       height: 700px;
+    }
+    .modal .modal_content {
+      width: 100%;
     }
   }
   @media screen and (max-width: 550px){

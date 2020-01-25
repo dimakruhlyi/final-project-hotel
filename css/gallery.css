@@ -124,7 +124,7 @@ h1{
     text-align: center;
     letter-spacing: 1em;
 }
-.gallery .demo1 a img{
+.gallery .demo1 img{
     width: 300px;
     height: 300px;
     -webkit-box-shadow: 0px 5px 15px 5px #000000; 
@@ -133,96 +133,26 @@ h1{
     background:#000;
     object-fit: cover;
 }
-.lbox {
-    position: fixed;
-    display: block;
-    overflow: hidden;
-    background: rgba(0,0,0,0.8);
-    z-index: 9999;
-    -webkit-font-smoothing: antialiased;
-    visibility: hidden;
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.9);
+  z-index: 1000;
 }
-.lbox.fade:target > img {
-    -webkit-transition: opacity 1s;
-       -moz-transition: opacity 1s;
-         -o-transition: opacity 1s;
-            transition: opacity 1s;
+.modal .modal_content {
+  background-color: rgba(0,0,0,0.1);
+  margin: 5% auto;
+  width: 60%;
+  z-index: 99999;
 }
-
-.lbox, .lbox > img, .lbox > div {top: 0;left: 0;right: 0;bottom: 0;}
-
-.lbox {top: -100%;}
-.lbox:target {top: 0;visibility: visible;}
-
-.lbox > a {
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 75px;
-    height: 75px;
-    background: url(../img/gallery/icons/close1x-bw.png) no-repeat center center rgba(0, 0, 0, 0.7);
+.modal .modal_content img{
+  width:100%;
 }
-
-.lbox > img, .lbox > div {
-    position: absolute;
-    margin: auto;
-    box-shadow: 0 3px 3px -1px rgba(0, 0, 0, 0.3), 0 1px 0px 0px rgba(0, 0, 0, 0.05);
-}
-
-.lbox > img {
-    max-width: 90%;
-    max-height: 90%;
-}
-
-.lbox > .vid {
-    max-width: 800px;
-    height: 450px;
-    width:100%;
-}
-
-.lbox > .text {
-    max-width: 800px;
-    max-height: 90%;
-    top: 20%;
-    bottom: auto;
-    padding: 2em;
-    background: #fff;
-    color: #757575;
-    width:100%;
-}
-
-.lbox > .vid iframe, .lbox > .vid object, .lbox > .vid embed {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-@-webkit-keyframes flip {
-    0% {-webkit-transform: perspective(600px) rotate3d(1, 0, 0, 20deg);opacity: 0;}
-    50% {-webkit-transform: perspective(600px) rotate3d(1, 0, 0, -5deg);opacity: 1;}
-    100% {-webkit-transform: perspective(600px) rotate3d(1, 0, 0, 0);opacity: 1;}
-}
-@-moz-keyframes flip {
-    0% {-moz-transform: perspective(600px) rotate3d(1, 0, 0, 20deg);opacity: 0;}
-    50% {-moz-transform: perspective(600px) rotate3d(1, 0, 0, -5deg);opacity: 1;}
-    100% {-moz-transform: perspective(600px) rotate3d(1, 0, 0, 0);opacity: 1;}
-}
-@keyframes flip { 
-    0% {transform: perspective(600px) rotate3d(1, 0, 0, 20deg);opacity: 0;}
-    50% {transform: perspective(600px) rotate3d(1, 0, 0, -5deg);opacity: 1;}
-    100% {transform: perspective(600px) rotate3d(1, 0, 0, 0);opacity: 1;}
-}
-
-.lbox.flip:target > img, .lbox.flip:target > div {
-    -webkit-animation: flip 1s none;
-       -moz-animation: flip 1s none;
-         -o-animation: flip 1s none;
-            animation: flip 1s none;
-}
-
 
   /*------------------------------------------  Swimming pool(with spa-classes) ------------------------------------------*/
   .spa-procedures {
