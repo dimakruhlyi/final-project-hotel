@@ -13,20 +13,7 @@
         font-size:35px;
     }
 }
-/*@media screen and (min-width:901px){
-  header .main-head-block{
-    width:100%;
-    position: fixed;
-    margin-top: 0;
-    z-index: 10;
-  }
-  .head-block{
-    width:100%;
-    position: fixed;
-    margin-top: -20px;
-    z-index: 10;
-  }
-}*/
+
 @media screen and (min-width: 899px) and (max-width: 901px){
   .spa-procedures{
       height: 650px;
@@ -73,12 +60,11 @@
         left:10vw;
         font-size:32px;
     }
-    .about h2{
-        margin-top: -100px;
-    }
     footer .footer-logo, footer .copyright{
         padding:0;
     }
+    .dropdown:hover .dropdown-content {
+      padding-left:30px;}
   }
   
   @media screen and (max-width: 768px) {
@@ -121,6 +107,13 @@
    .sort-block{
     margin:0 auto;
     }
+    .breadcrumbs ul li a {
+      font-size: 18px;
+    }
+   h1{
+     margin-top: 100px;
+   }
+    
   }
   @media screen and (max-width: 580px){
     .data-block .info-block{

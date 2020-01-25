@@ -115,7 +115,63 @@ body {
         color: #fff; }
       .top-info .reserv-block p:hover, .top-info .reserv-block span:last-child:hover {
         text-decoration: underline; }
-  /*------------------------------------------ Head Slider ------------------------------------------*/
+  
+ /*------------------------------------------ Breadcrumbs------------------------------------------*/  
+.breadcrumbs-section{
+  position: relative;
+  top:-15px;
+  left:-30px;
+}
+.breadcrumbs ul li a {
+  display: block;
+  float: left;
+  height: 30px;
+  background: #162546;
+  text-align: center;
+  padding: 8px 10px 0 30px;
+  position: relative;
+  margin: 0 10px 0 0;     
+  font-size: 20px;
+  text-decoration: none;;
+  color: #fff;
+}
+.breadcrumbs ul li{
+      list-style:none;
+}
+.breadcrumbs ul li a:after {
+  content: "";  
+  border-top: 19px solid transparent;
+  border-bottom: 19px solid transparent;
+  border-left: 32px solid #162546;
+  position: absolute; 
+  right: -32px; 
+  top: 0;
+  z-index:2;
+}
+.breadcrumbs ul li a:before {
+  content: "";  
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-left: 32px solid #fff;
+  position: absolute; left: 0; top: 0;    
+}
+.breadcrumbs ul li:first-child a {
+  border-top-left-radius: 10px; border-bottom-left-radius: 10px;
+}
+.breadcrumbs ul li:first-child a:before {
+  display: none; 
+}
+.breadcrumbs ul li:last-child a {
+  padding-right: 50px;
+  border-top-right-radius: 10px; border-bottom-right-radius: 10px;
+}
+.breadcrumbs ul li:last-child a:after {
+  display: none; 
+}
+.first-type ul li:last-child a {
+  background: #f0793a;
+}  
+/*------------------------------------------ Head Slider ------------------------------------------*/
 .main-slider {
     height: 100px;
     width: 100%;
@@ -209,6 +265,7 @@ body {
     color: #f0793a;
     text-align: center;
     letter-spacing: 0.4em;
+    margin-top:60px;
 }
 .upper-block{
     width:100%;

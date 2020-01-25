@@ -204,3 +204,14 @@ function changeRoomCount(id, count){
    localStorage.setItem('room_count',JSON.stringify(tempArray));
    localStorage.setItem('currentRoom', JSON.stringify(tempObj));
 }
+/*------------------------------------------Breadcrumbs------------------------------------------*/
+let breadcrumbsData = `
+<div class="breadcrumbs first-type">
+<ul>
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../pages/apartments.html">Apartments</a></li>
+    <li><a href="../pages/room.html">${JSON.parse(localStorage.getItem('currentRoom')).title}</a></li>
+</ul>
+</div> 
+`;
+document.getElementById('breadcrumbs-section').innerHTML = breadcrumbsData;
