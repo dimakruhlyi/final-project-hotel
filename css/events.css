@@ -174,14 +174,77 @@ body {
 } 
 /*------------------------------------------ Events ------------------------------------------*/
 h1{
-    font-family: 'Nexa-Light';
-    font-size: 30px;
-    color: #f0793a;
-    text-align: center;
-    letter-spacing: 0.4em;
-    margin-top:60px;
+  font-family: 'Nexa-Light';
+  font-size: 30px;
+  color: #f0793a;
+  text-align: center;
+  letter-spacing: 0.4em;
+  margin-top:60px;
 }
-  /*------------------------------------------  Luxury Rooms(with spa-classes) ------------------------------------------*/
+.events{
+  background: url("../img/events/events-background.png") repeat center;
+}
+.events .header-events{
+  width:100%;
+  height: 80px;
+  background:rgb(47,51,53);
+  color:#fff;
+  font-family: 'Nexa-Bold';
+  font-size: 25px;
+}
+.events .header-events h2{
+  padding-top:20px;
+  padding-left:15px;
+}
+.events .events-container{
+  width:100%;
+  background: rgba(255,255,255,.5);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.events-container .event-block{
+  width:300px;
+  height:450px;
+  margin-top: 10px;
+}
+.events-container .event-block img{
+  width: 100%;
+  height: 300px;
+}
+.events-container .event-block .date,.events-container .event-block .info{
+  width: 100%;
+  height: 75px;
+  margin-top: -5px;
+  background: rgb(1,39,49);
+  font-family: 'Nexa-Bold';
+  font-size:30px;
+  color:#fff;
+  text-align: center;
+}
+.events-container .event-block .info{
+  background: rgb(16,100,112);
+  margin-top: -30px;
+  font-size:20px;
+  font-style: italic;
+  text-align: center;
+}
+.events-container .more-events{
+  width: 100%;
+  font-family: 'Nexa-Regular';
+  font-size:30px;
+  text-decoration: underline;
+  font-style: italic;
+  text-align: center;
+  margin-top:50px;
+}
+.events-container .more-events:hover{
+  cursor: pointer;
+}
+.events-container .hide-block{
+  display: none;
+}
+  /*------------------------------------------ DJ Martin Garrix(with spa-classes) ------------------------------------------*/
   .spa-procedures {
     width: 100%;
     height: 600px;
@@ -227,9 +290,11 @@ h1{
   footer {
     width: 100%;
     height: 100px; 
-  padding-left: -100px;}
+    padding-left: -100px;
+    background: #fff;}
     footer .flex-container {
-      justify-content: space-between; }
+      justify-content: space-between; 
+      background: #fff;}
     footer .footer-logo {
       padding-left: 50px; }
     footer .copyright {

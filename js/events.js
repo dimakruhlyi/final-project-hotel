@@ -19,3 +19,8 @@ function include(url) {
   else{
    document.getElementById('menuLogin').innerHTML = '<a href="../pages/authorization.html" target = "_self" ><p>Log in</p></a>';
   }
+  /*------------------------------------------ Show more events------------------------------------------*/
+  document.getElementById('more-events').addEventListener('click', function(){
+    document.getElementById('more-events').style.display = 'none';
+    document.getElementById('hide-block').className = "events-container";
+  });
