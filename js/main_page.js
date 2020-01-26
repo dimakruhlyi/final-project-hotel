@@ -21,3 +21,14 @@ if(JSON.parse(localStorage.getItem('authorization_FLAG'))){
   else{
    document.getElementById('menuLogin').innerHTML = '<a href="/pages/authorization.html" target = "_self" ><p>Log in</p></a>';
   }
+
+/*------------------------------------------ Google Maps------------------------------------------*/
+//   function myMap(){
+//     let option = {
+//         center: { lat: 50.433429, lng: 30.519608},
+//         zoom: 4,
+//     };
+//     let map =  new google.maps.Map(document.getElementById('map'), option);
+
+
+//}

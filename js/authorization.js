@@ -4,7 +4,6 @@ function include(url) {
 	document.getElementsByTagName('head')[0].appendChild(script);
   }
   include('../js/head-menu.js');
-  include('../js/smooth-scroll.js');
 /*------------------------------------------ Show/Hide form ------------------------------------------*/
 function showRegisterForm(){
     document.querySelector('.login-form').style.display = 'none';

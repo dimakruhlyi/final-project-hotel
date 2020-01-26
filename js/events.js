@@ -4,7 +4,6 @@ function include(url) {
 	document.getElementsByTagName('head')[0].appendChild(script);
   }
   include('../js/head-menu.js');
-  include('../js/smooth-scroll.js');
   /*------------------------------------------ Check Logged In or NO------------------------------------------*/
  if(JSON.parse(localStorage.getItem('authorization_FLAG'))){
     document.getElementById('menuLogin').innerHTML = '<span>Hello, </span>'+JSON.parse(localStorage.getItem('current_user')) + 
