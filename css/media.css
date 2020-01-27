@@ -10,24 +10,24 @@
 }
 
 @media screen and (min-width: 899px) and (max-width: 901px){
-  .spa-procedures{
+  .darkblue-content-block{
       height: 650px;
   }
-  .spa-procedures-inner{
+  .darkblue-content-block-inner{
       padding-top:70px;
   }
   
 }
 @media screen and (max-width: 899px){
-  .spa-procedures{
+  .darkblue-content-block{
       height: 980px;
   }
-  .spa-procedures-inner{
+  .darkblue-content-block-inner{
       padding-top:0;
   }
 }
-
-@media screen and (max-width: 768px) {
+  
+  @media screen and (max-width: 768px) {
     .topnav a:not(:first-child), .dropdown .dropbtn {
       display: none;
     }
@@ -55,9 +55,7 @@
     }
     .dropdown:hover .dropdown-content {
       padding-left:30px;}
-  }
-  
-  @media screen and (max-width: 768px) {
+
     .topnav.responsive {position: relative;}
     .topnav.responsive .icon {
       position: absolute;
@@ -119,8 +117,8 @@
       height: 330px;
     }
     .contacts .map iframe{
-      width:90%;
-      height: 300px;
+      width:100%;
+      height: 330px;
     }
     .contacts .data{
       margin-top:20px;
@@ -138,7 +136,7 @@
     }
   }
   @media screen and (max-width: 425px){
-      .spa-procedures{
+      .darkblue-content-block{
           height: 1400px;
       }
       .block-2 .image-2-3 .imgBox{
@@ -173,7 +171,7 @@
     }
   }
   @media screen and (max-width: 370px){
-    .spa-procedures-inner .block-2{
+    .darkblue-content-block-inner .block-2{
         margin-top:20px;
     }
     footer{
@@ -183,7 +181,7 @@
   }
   @media screen and (max-width: 352px){
     .block-2 .image-1{
-      margin-top:20px;
+      margin-top:50px;
     }
     .room-description .upper-block{
         border-bottom: none;

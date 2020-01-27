@@ -18,14 +18,10 @@ function include(url) {
          <img class="slide" src="../img/rooms/${(JSON.parse(localStorage.getItem('currentRoom')).img_slider).split(' ')[2]}" alt="Slide 3">
      </div>
      <div class="arrow arrow_prev">
-         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 257.6 451.8">
-             <path d="M0,225.9c0-8.1,3.1-16.2,9.3-22.4L203.5,9.3c12.4-12.4,32.4-12.4,44.8,0c12.4,12.4,12.4,32.4,0,44.7L76.4,225.9l171.9,171.9c12.4,12.4,12.4,32.4,0,44.7c-12.4,12.4-32.4,12.4-44.7,0L9.3,248.3C3.1,242.1,0,234,0,225.9z"/>
-         </svg>
+        <img src="../img/arrow-icons/arrow-left.jpg" alt="Arrow Left">
      </div>
      <div class="arrow arrow_next">
-         <svg class="arrow arrow_next" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 257.6 451.8">
-             <path d="M248.3,248.3L54,442.6c-12.4,12.4-32.4,12.4-44.7,0c-12.4-12.4-12.4-32.4,0-44.7l171.9-171.9L9.3,54C-3.1,41.7-3.1,21.6,9.3,9.3C21.6-3.1,41.7-3.1,54,9.3l194.3,194.3c6.2,6.2,9.3,14.3,9.3,22.4C257.6,234,254.5,242.1,248.3,248.3z"/>
-         </svg>
+        <img src="../img/arrow-icons/arrow-right.jpg" alt="Arrow Right">
      </div>
  </div>
  <div class="upper-block container">
@@ -138,53 +134,57 @@ if(JSON.parse(localStorage.getItem('authorization_FLAG'))){
         if(JSON.parse(localStorage.getItem('currentRoom')).count == 0){
             alert("There isn't free rooms now!");
         }else{
+            
             let firstDate = document.getElementById('firstdate');
             let secondDate = document.getElementById('seconddate');
             let specialCode = document.getElementById('secialcode');
             if( firstDate.value > secondDate.value){
                 alert("Incorrect DATE!")
             }else{
-                let modalContent = "";
+                if(document.getElementById('adultscount').value > JSON.parse(localStorage.getItem('currentRoom')).capacity || document.getElementById('adultscount').value < 1){
+                    alert('Incorrect adults count!')
+                }else{
+                    let modalContent = "";
 
-                let adultsCount = document.getElementById('adultscount');
-                let bookingData = {
-                    bookingRoomId: JSON.parse(localStorage.getItem('currentRoom')).id,
-                    bookingRoomTitle: JSON.parse(localStorage.getItem('currentRoom')).title,
-                    bookingDateFirst: firstDate.value,
-                    bookingDateSecond: secondDate.value,
-                    bookingAdultsCount: adultsCount.value,
-                    bookingSpecialCode: specialCode.value,
-                    bookingUser: JSON.parse(localStorage.getItem('current_user'))
-                };
-                booking.push(bookingData);
-                localStorage.setItem('booking', JSON.stringify(booking));
-                
-                let changedCount = JSON.parse(localStorage.getItem('currentRoom')).count - 1;
-                changeRoomCount(bookingData.bookingRoomId, changedCount);
+                    let adultsCount = document.getElementById('adultscount');
+                    let bookingData = {
+                        bookingRoomId: JSON.parse(localStorage.getItem('currentRoom')).id,
+                        bookingRoomTitle: JSON.parse(localStorage.getItem('currentRoom')).title,
+                        bookingDateFirst: firstDate.value,
+                        bookingDateSecond: secondDate.value,
+                        bookingAdultsCount: adultsCount.value,
+                        bookingSpecialCode: specialCode.value,
+                        bookingUser: JSON.parse(localStorage.getItem('current_user'))
+                    };
+                    booking.push(bookingData);
+                    localStorage.setItem('booking', JSON.stringify(booking));
+                    
+                    let changedCount = JSON.parse(localStorage.getItem('currentRoom')).count - 1;
+                    changeRoomCount(bookingData.bookingRoomId, changedCount);
 
-                modalContent = `
-                            <div class="modal_content">
-                                <span class="close_modal_window">×</span>
-                                <h3>Booking Data</h3>
-                                <p><span>Room Title: </span>${bookingData.bookingRoomTitle}</p>
-                                <p><span>Start Date: </span>${bookingData.bookingDateFirst}</p>
-                                <p><span>Finish Date: </span>${bookingData.bookingDateSecond}</p>
-                                <p><span>Adults: </span>${bookingData.bookingAdultsCount}</p>
-                                <p><span>Special Code: </span>${bookingData.bookingSpecialCode}</p>
-                                <h3>Booking is successful. Thank you!</h3>
-                            </div>`;
-                document.getElementById('my_modal').innerHTML = modalContent;
-                let modal = document.getElementById("my_modal");
-                let span = document.getElementsByClassName("close_modal_window")[0];
+                    modalContent = `
+                                <div class="modal_content">
+                                    <span class="close_modal_window">×</span>
+                                    <h3>Booking Data</h3>
+                                    <p><span>Room Title: </span>${bookingData.bookingRoomTitle}</p>
+                                    <p><span>Start Date: </span>${bookingData.bookingDateFirst}</p>
+                                    <p><span>Finish Date: </span>${bookingData.bookingDateSecond}</p>
+                                    <p><span>Adults: </span>${bookingData.bookingAdultsCount}</p>
+                                    <p><span>Special Code: </span>${bookingData.bookingSpecialCode}</p>
+                                    <h3>Booking is successful. Thank you!</h3>
+                                </div>`;
+                    document.getElementById('my_modal').innerHTML = modalContent;
+                    let modal = document.getElementById("my_modal");
+                    let span = document.getElementsByClassName("close_modal_window")[0];
 
-                modal.style.display = "block";
-                span.onclick =  function () { modal.style.display = "none"; };
-                window.onclick = function (event) {
-                    if (event.target == modal) {
-                        modal.style.display = "none";
+                    modal.style.display = "block";
+                    span.onclick =  function () { modal.style.display = "none"; };
+                    window.onclick = function (event) {
+                        if (event.target == modal) {
+                            modal.style.display = "none";
+                        }
                     }
                 }
-
             }     
         }
     }

@@ -206,7 +206,7 @@ a {
   font-size: 12px;
 }
 /*------------------------------------------  Buffet(with spa-classes) ------------------------------------------*/
-.spa-procedures {
+.darkblue-content-block {
   width: 100%;
   height: 600px;
   background: #083b5a; }
@@ -217,7 +217,7 @@ a {
   flex-wrap: wrap;
   justify-content: space-evenly; }
 
-.spa-procedures-inner {
+.darkblue-content-block-inner {
   padding-top: 80px; }
 
 .block-1 {

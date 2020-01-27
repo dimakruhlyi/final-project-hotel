@@ -187,9 +187,8 @@ h1{
     box-shadow: 0px 5px 15px 5px #000000;
 }
 .contacts .map iframe{
-    width:500px;
-    height: 500px;
-    padding:15px;
+    width:530px;
+    height: 530px;
 }
 .contacts .data{
     width:530px;
@@ -213,12 +212,15 @@ h1{
     margin-top:-30px;
     display: inline-block;
 }
+.contacts .data p a{
+  color:#000;
+}
 .contacts .data .mail p{
     position: relative;
     top:-10px;
 }
-  /*------------------------------------------  Gym(with spa-classes) ------------------------------------------*/
-  .spa-procedures {
+  /*------------------------------------------  Gym ------------------------------------------*/
+  .darkblue-content-block {
     width: 100%;
     height: 600px;
     background: #083b5a; 
@@ -230,7 +232,7 @@ h1{
     flex-wrap: wrap;
     justify-content: space-evenly; }
   
-  .spa-procedures-inner {
+  .darkblue-content-block-inner {
     padding-top: 80px; }
   
   .block-1 {

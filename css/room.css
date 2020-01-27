@@ -207,26 +207,30 @@ body {
     z-index: 1;
     height: 20vh;
     width: 20vw;
-    top: 18vh; }
+    top: 45vh; }
   
-  .arrow svg {
+  .arrow img {
     fill: #ffffff;
-    width: 35px;
+    width: 50px;
+    height: 75px;
     opacity: 0.55;
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%); }
+    top: -80%; }
+  
+  .arrow img:hover{
+    width:55px;
+    height: 80px;}
   
   .arrow_prev {
     left: 0; }
   
-  .arrow_prev svg {
+  .arrow_prev img {
     left: 3vw; }
   
   .arrow_next {
     right: 0; }
   
-  .arrow_next svg {
+  .arrow_next img {
     right: 3vw; }
   
   .arrow_disabled {
@@ -432,8 +436,8 @@ input {
     font-weight: bold;
     cursor: pointer;
 }
-  /*------------------------------------------  Family Rooms(with spa-classes) ------------------------------------------*/
-  .spa-procedures {
+  /*------------------------------------------  Family Rooms ------------------------------------------*/
+  .darkblue-content-block {
     width: 100%;
     height: 600px;
     background: #083b5a; 
@@ -445,7 +449,7 @@ input {
     flex-wrap: wrap;
     justify-content: space-evenly; }
   
-  .spa-procedures-inner {
+  .darkblue-content-block-inner {
     padding-top: 80px; }
   
   .block-1 {

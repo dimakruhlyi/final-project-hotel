@@ -24,11 +24,18 @@ if(JSON.parse(localStorage.getItem('authorization_FLAG'))){
 
 /*------------------------------------------ Google Maps------------------------------------------*/
 //   function myMap(){
+//     let pos = { lat: 50.433429, lng: 30.519608};
 //     let option = {
-//         center: { lat: 50.433429, lng: 30.519608},
-//         zoom: 4,
+//         center: pos,
+//         zoom: 18,
 //     };
+
 //     let map =  new google.maps.Map(document.getElementById('map'), option);
 
-
-//}
+//     let marker = new google.maps.Marker({
+//       position: pos,
+//       mapCord: map,
+//       title: 'Sheraton Hotel, Kyiv, Ukraine',
+//       icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+//     });  
+// }

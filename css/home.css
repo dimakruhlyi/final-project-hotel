@@ -52,7 +52,8 @@ a {
   font-size: 17px; }
 
 .topnav .icon {
-  display: none; }
+  display: none; 
+  font-size:15px;}
 
 .dropdown {
   float: left;
@@ -145,24 +146,28 @@ a {
   width: 20vw;
   top: 45vh; }
 
-.arrow svg {
+.arrow img {
   fill: #ffffff;
-  width: 35px;
+  width: 50px;
+  height: 75px;
   opacity: 0.55;
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%); }
+  top: 15%; }
+
+.arrow img:hover{
+    width:55px;
+    height: 80px;}
 
 .arrow_prev {
   left: 0; }
 
-.arrow_prev svg {
+.arrow_prev img {
   left: 3vw; }
 
 .arrow_next {
   right: 0; }
 
-.arrow_next svg {
+.arrow_next img {
   right: 3vw; }
 
 .arrow_disabled {
@@ -240,13 +245,13 @@ a {
   margin-top: 5px; }
 
 /*------------------------------------------ Spa procedures ------------------------------------------*/
-.spa-procedures {
+.darkblue-content-block {
   margin-top: 30px;
   width: 100%;
   height: 600px;
   background: #083b5a; }
 
-.spa-procedures-inner {
+.darkblue-content-block-inner {
   padding-top: 80px; }
 
 .block-1 {
@@ -285,9 +290,7 @@ a {
 
 /*------------------------------------------ Map ------------------------------------------*/
 .map {
-  overflow-x: hidden; 
-  /*width: 100%;
-  height: 350px;*/ }
+  overflow-x: hidden; }
   .map iframe {
     width: 100%;
     height: 350px; }
