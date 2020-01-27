@@ -74,9 +74,6 @@
       width: 100%;
       text-align: left;
     }
-    .room-description .upper-block{
-      margin-top:-50px;
-    }
   }
   @media screen and (max-width: 603px){
     footer .footer-logo, footer .copyright, footer .footer-links{
@@ -160,6 +157,11 @@
     .contacts .data .phone-numbers{
       position: relative;
       top:-30px;
+    }
+  }
+  @media screen and (min-height: 390px) and (max-width: 768px){
+    .room-description .upper-block{
+      margin-top:25vh;
     }
   }
   @media screen and (max-width: 388px){

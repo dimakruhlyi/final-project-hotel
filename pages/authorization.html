@@ -53,14 +53,14 @@
   <div class="form-block-upper">
     <div class="login-page">
       <div class="form">
-        <form class="register-form">
-          <input type="text" placeholder="name*" id="registerLogin" required />
-          <input type="password" placeholder="password*" id="registerPS" required />
-          <input type="email" placeholder="email address*" id="registerMail" required />
-          <button id="createBtn">create</button>
+        <form class="register-form" id="register-form">
+          <input type="text" placeholder="name*" id="registerLogin"  required/>
+          <input type="password" placeholder="password*" id="registerPS"  required />
+          <input type="email" placeholder="email address*" id="registerMail"  required />
+          <button id="createBtn" >create</button>
           <p class="message">Already registered? <a href="#" onclick="showLoginForm()">Sign In</a></p>
         </form>
-        <form class="login-form">
+        <form class="login-form" id="login-form">
           <input type="text" placeholder="username*" id="Login" required/>
           <input type="password" placeholder="password*" id="PS" required/>
           <button type="button" id="loginBtn">login</button>
@@ -112,6 +112,6 @@
 
 
 
-  <script src="../js/authorization.js"></script>
+  <script src="../js/authorization.js" defer></script>
 </body>
 </html>

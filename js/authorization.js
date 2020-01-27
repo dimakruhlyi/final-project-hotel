@@ -24,22 +24,26 @@ let userMail = localStorage.getItem('userMail') ? JSON.parse(localStorage.getIte
 localStorage.setItem('userLogin',JSON.stringify(userLogin));
 localStorage.setItem('userPS',JSON.stringify(userPS)); 
 localStorage.setItem('userMail',JSON.stringify(userMail));
+let formRegister = document.getElementById('register-form');
+let loginForm = document.getElementById('login-form');
 
 document.getElementById('createBtn').addEventListener('click',function(e){
-   e.preventDefault();
-
-   if(checkLogin(registerLogin.value)){
-    userLogin.push(registerLogin.value);
-    localStorage.setItem('userLogin',JSON.stringify(userLogin));
-    userPS.push(registerPS.value);
-    localStorage.setItem('userPS',JSON.stringify(userPS));
-    userMail.push(registerMail.value);
-    localStorage.setItem('userMail',JSON.stringify(userMail));
-    alert('Registered!');
-   }else{
-    alert("This login have already exist!")
-   }
+    if(formRegister.checkValidity()){
+      if(checkLogin(registerLogin.value)){
+        userLogin.push(registerLogin.value);
+        localStorage.setItem('userLogin',JSON.stringify(userLogin));
+        userPS.push(registerPS.value);
+        localStorage.setItem('userPS',JSON.stringify(userPS));
+        userMail.push(registerMail.value);
+        localStorage.setItem('userMail',JSON.stringify(userMail));
+        alert('Registered!');
+      }else{
+        alert("This login have already exist!")
+      }
+    }
+    else alert('Incorrect input!');
  });
+ 
 
  function checkLogin(login){
    for(let i = 0; i < JSON.parse(localStorage.getItem('userLogin')).length; i++){
@@ -53,7 +57,9 @@ document.getElementById('createBtn').addEventListener('click',function(e){
  let login = document.getElementById('Login');
  let password = document.getElementById('PS');
  document.getElementById('loginBtn').addEventListener('click', function(){
+   if(loginForm.checkValidity()){
     authorization(login.value, password.value);
+   }else alert('Incorrect input! Fields is required!');
  });
 
  function authorization(login, ps){

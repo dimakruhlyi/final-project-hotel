@@ -15,11 +15,11 @@ if(JSON.parse(localStorage.getItem('authorization_FLAG'))){
     document.getElementById('logOUT').addEventListener('click', function(){
      localStorage.setItem('authorization_FLAG', JSON.stringify(false));
      localStorage.setItem('current_user', JSON.stringify(" "));
-     document.getElementById('menuLogin').innerHTML = '<a href="/pages/authorization.html" target = "_self" ><p>Log in</p></a>';
+     document.getElementById('menuLogin').innerHTML = '<a href="pages/authorization.html" target = "_self" ><p>Log in</p></a>';
     });
   }
   else{
-   document.getElementById('menuLogin').innerHTML = '<a href="/pages/authorization.html" target = "_self" ><p>Log in</p></a>';
+   document.getElementById('menuLogin').innerHTML = '<a href="pages/authorization.html" target = "_self" ><p>Log in</p></a>';
   }
 
 /*------------------------------------------ Google Maps------------------------------------------*/
