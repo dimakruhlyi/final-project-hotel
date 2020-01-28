@@ -65,10 +65,6 @@ function updImgClasses(curImg){
 
 function arrowClickHandler(thisArrow){
 
-	document.querySelectorAll(".arrow").forEach((item) => {
-		item.classList.add("arrow_disabled");
-	});
-
 	currentImg.classList.add(thisArrow.curImgTempClassname);
 	thisArrow.newImg.val.classList.add(thisArrow.newImgTempClassname);
 

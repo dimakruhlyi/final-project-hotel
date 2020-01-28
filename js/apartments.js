@@ -135,7 +135,7 @@ function showDataPagination(count_loots){
     
     if (target.tagName.toLowerCase() != "span") return;
     
-    let num_ = id.substr(4);
+    
     let data_page = +target.dataset.page;
     main_page.classList.remove("paginator_active");
     main_page = document.getElementById(id);
